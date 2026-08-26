@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="NOMADIA official links for products, stores, business inquiries, and the global waitlist.">
+  <meta name="description" content="NOMADIA official links for stores, business inquiries, and the global waitlist.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#AAD5E9">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NOMADIA">
   <meta property="og:title" content="NOMADIA Official Links">
-  <meta property="og:description" content="NOMADIA official links for products, stores, business inquiries, and the global waitlist.">
+  <meta property="og:description" content="NOMADIA official links for stores, business inquiries, and the global waitlist.">
   <meta property="og:url" content="https://tandumstudio.github.io/nomadia-link/">
   <meta property="og:image" content="https://linktr.ee/og/image/nomadiaskin.jpg">
   <meta property="og:image:alt" content="NOMADIA">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="NOMADIA Official Links">
-  <meta name="twitter:description" content="NOMADIA official links for products, stores, business inquiries, and the global waitlist.">
+  <meta name="twitter:description" content="NOMADIA official links for stores, business inquiries, and the global waitlist.">
   <meta name="twitter:image" content="https://linktr.ee/og/image/nomadiaskin.jpg">
   <title>NOMADIA Official Links</title>
   <link rel="canonical" href="https://tandumstudio.github.io/nomadia-link/">
@@ -38,7 +38,7 @@
       "@id": "https://tandumstudio.github.io/nomadia-link/#profile",
       "url": "https://tandumstudio.github.io/nomadia-link/",
       "name": "NOMADIA Official Links",
-      "description": "NOMADIA official links for products, stores, business inquiries, and the global waitlist.",
+      "description": "NOMADIA official links for stores, business inquiries, and the global waitlist.",
       "mainEntity": {
         "@type": "Organization",
         "name": "NOMADIA",
@@ -65,7 +65,6 @@
       --nomadia-link-surface-hover: var(--nomadia-raw-light-grey); /* Black on Light Grey: 8.21:1. */
       --nomadia-link-action-surface: var(--nomadia-raw-white); /* Black on White: 17.07:1. */
       --nomadia-link-action-hover: var(--nomadia-raw-light-grey); /* Black on Light Grey: 8.21:1. */
-      --nomadia-link-product-media: var(--nomadia-raw-white); /* Black on White: 17.07:1. */
       --nomadia-link-text: var(--nomadia-raw-black);
       --nomadia-link-text-strong: var(--nomadia-raw-dark-blue); /* On White: 9.27:1. */
       --nomadia-link-text-muted: var(--nomadia-raw-dark-grey); /* On White: 5.92:1. */
@@ -324,20 +323,14 @@
       content: "";
     }
 
-    .link-card:hover,
-    .product-card:hover {
+    .link-card:hover {
       background: var(--nomadia-link-surface-hover);
       transform: translateY(-1px);
     }
 
-    .link-card:focus-visible,
-    .product-card:focus-visible {
+    .link-card:focus-visible {
       background: var(--nomadia-link-surface-hover);
       transform: none;
-    }
-
-    .product-card:focus-visible {
-      outline-offset: -3px;
     }
 
     .link-icon {
@@ -367,44 +360,6 @@
     }
 
     .simple-card::after { display: none; }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      overflow: hidden;
-      border: 1px solid var(--nomadia-link-border);
-      border-radius: var(--nomadia-link-radius);
-      background: var(--nomadia-link-page);
-    }
-
-    .product-card {
-      display: grid;
-      grid-template-rows: auto 1fr;
-      color: inherit;
-      text-decoration: none;
-      transition: background-color 160ms ease, transform 160ms ease;
-    }
-
-    .product-card + .product-card { border-left: 1px solid var(--nomadia-link-soft-line); }
-
-    .product-card img {
-      width: 100%;
-      height: clamp(132px, 36vw, 168px);
-      padding: 8px;
-      object-fit: contain;
-      object-position: center;
-      background: var(--nomadia-link-product-media);
-    }
-
-    .product-name {
-      display: grid;
-      grid-template-columns: 1fr;
-      align-items: start;
-      padding: 10px 8px 9px;
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 1.35;
-    }
 
     .contact-card {
       grid-template-columns: 38px 1fr 38px;
@@ -466,7 +421,6 @@
 
     @media (max-width: 360px) {
       .page { padding-inline: 10px; }
-      .product-name { font-size: 12px; }
       .link-label { font-size: 13px; }
     }
   </style>
@@ -547,20 +501,6 @@
       </div>
     </section>
 
-    <section class="section" data-section="products" aria-labelledby="products-title">
-      <h2 class="section-title" id="products-title" data-i18n="productsTitle">Our Products</h2>
-      <div class="product-grid">
-        <a class="product-card" data-product="milk" href="https://tandumstudio.github.io/nomadia-qr/?lang=en&amp;product=milk" target="_blank" rel="noopener noreferrer">
-          <img data-i18n-alt="productMilk" src="https://ugc.production.linktr.ee/df270094-2559-4a05-8f99-f3eda3db112c_milk-hero4.png?io=true&amp;size=thumbnail-grid-carousel-v1_1" alt="Blue Calming Panthenol 1% Cleansing Milk" width="500" height="500" loading="lazy">
-          <span class="product-name"><span data-i18n="productMilk">Blue Calming Panthenol 1% Cleansing Milk</span></span>
-        </a>
-        <a class="product-card" data-product="bubble" href="https://tandumstudio.github.io/nomadia-qr/?lang=en&amp;product=bubble" target="_blank" rel="noopener noreferrer">
-          <img data-i18n-alt="productBubble" src="https://ugc.production.linktr.ee/b6cdd4a6-937d-40af-8da6-2d484d9acc01_bubble-hero4.png?io=true&amp;size=thumbnail-grid-carousel-v1_1" alt="Golden Jojoba 10% Dual Micro-bubble Cleanser" width="500" height="500" loading="lazy">
-          <span class="product-name"><span data-i18n="productBubble">Golden Jojoba 10% Dual Micro-bubble Cleanser</span></span>
-        </a>
-      </div>
-    </section>
-
     <section class="section" data-section="business" aria-label="Business inquiries">
       <a class="link-card contact-card" href="mailto:b2b-g@tandumstudio.com">
         <span class="mail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 5h17A2.5 2.5 0 0 1 23 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 1 16.5v-9A2.5 2.5 0 0 1 3.5 5Zm0 2a.5.5 0 0 0-.5.5v.2l9 5.55 9-5.55v-.2a.5.5 0 0 0-.5-.5h-17ZM21 10.05l-8.48 5.23a1 1 0 0 1-1.04 0L3 10.05v6.45a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5v-6.45Z"/></svg></span>
@@ -582,7 +522,7 @@
       const translations = {
         en: {
           title: "NOMADIA Official Links",
-          description: "NOMADIA official links for products, stores, business inquiries, and the global waitlist.",
+          description: "NOMADIA official links for stores, business inquiries, and the global waitlist.",
           ogLocale: "en_US",
           bioLead: "Derma skincare for sensitive skin 🥼🤍",
           bioSub: "exploring the unknowns of sensitive skin 🔍",
@@ -593,9 +533,6 @@
           naverStore: "[KR] NOMADIA Naver Smartstore",
           pharmacyMap: "[KR] Offline Pharmacy Stocklist",
           qoo10: "[JP] Qoo10 Official Store",
-          productsTitle: "Our Products",
-          productMilk: "Blue Calming Panthenol 1% Cleansing Milk",
-          productBubble: "Golden Jojoba 10% Dual Micro-bubble Cleanser",
           business: "Business Inquiries",
           email: "Email",
           controlsLabel: "Page controls",
@@ -607,7 +544,7 @@
         },
         ko: {
           title: "NOMADIA 공식 링크",
-          description: "NOMADIA의 제품, 구매처, 비즈니스 문의, 글로벌 웨이트리스트 공식 링크입니다.",
+          description: "NOMADIA의 구매처, 비즈니스 문의, 글로벌 웨이트리스트 공식 링크입니다.",
           ogLocale: "ko_KR",
           bioLead: "민감성 피부를 위한 더마 스킨케어 🥼🤍",
           bioSub: "민감성 피부의 미지의 영역을 탐구합니다 🔍",
@@ -618,9 +555,6 @@
           naverStore: "[KR] 네이버 스마트스토어",
           pharmacyMap: "[KR] 노마디아 입점 약국 지도",
           qoo10: "[JP] Qoo10 공식 스토어",
-          productsTitle: "제품",
-          productMilk: "노마디아 블루 진정 판테놀 1% 클렌징 밀크",
-          productBubble: "골든 호호바 10% 듀얼 마이크로 버블 클렌저",
           business: "비즈니스 문의",
           email: "이메일",
           controlsLabel: "페이지 설정",
@@ -632,7 +566,7 @@
         },
         ja: {
           title: "NOMADIA 公式リンク",
-          description: "NOMADIAの製品、購入先、ビジネスお問い合わせ、グローバルウェイトリストの公式リンクです。",
+          description: "NOMADIAの購入先、ビジネスお問い合わせ、グローバルウェイトリストの公式リンクです。",
           ogLocale: "ja_JP",
           bioLead: "敏感肌のためのダーマスキンケア 🥼🤍",
           bioSub: "敏感肌の未知を探求します 🔍",
@@ -643,9 +577,6 @@
           naverStore: "[韓国] NAVERスマートストア",
           pharmacyMap: "[韓国] オフライン薬局マップ",
           qoo10: "[日本] Qoo10公式ストア",
-          productsTitle: "製品",
-          productMilk: "ブルー カーミング パンテノール 1% クレンジングミルク",
-          productBubble: "ゴールデン ホホバ 10% デュアル マイクロバブル クレンザー",
           business: "ビジネスに関するお問い合わせ",
           email: "メール",
           controlsLabel: "ページ設定",
@@ -671,9 +602,9 @@
         }
       };
       const sectionOrder = {
-        GLOBAL: ["waitlist", "stores", "products", "business"],
-        KR: ["stores", "waitlist", "products", "business"],
-        JP: ["stores", "waitlist", "products", "business"]
+        GLOBAL: ["waitlist", "stores", "business"],
+        KR: ["stores", "waitlist", "business"],
+        JP: ["stores", "waitlist", "business"]
       };
       const storeOrder = {
         GLOBAL: ["official", "naver", "pharmacy", "qoo10"],
@@ -773,15 +704,6 @@
         }
       };
 
-      const applyProductLinks = (language) => {
-        const koreanStoreProducts = { milk: 11, bubble: 12 };
-        for (const card of document.querySelectorAll("[data-product]")) {
-          card.href = language === "ko"
-            ? `https://nomadiaskin.com/product/detail.html?product_no=${koreanStoreProducts[card.dataset.product]}`
-            : `https://tandumstudio.github.io/nomadia-qr/?lang=${language}&product=${card.dataset.product}`;
-        }
-      };
-
       const applyLanguage = (language) => {
         const copy = translations[language];
         document.documentElement.lang = language;
@@ -796,9 +718,6 @@
         for (const element of document.querySelectorAll("[data-i18n]")) {
           element.textContent = copy[element.dataset.i18n];
         }
-        for (const image of document.querySelectorAll("[data-i18n-alt]")) {
-          image.alt = copy[image.dataset.i18nAlt];
-        }
         for (const element of document.querySelectorAll("[data-i18n-aria]")) {
           element.setAttribute("aria-label", copy[element.dataset.i18nAria]);
         }
@@ -806,7 +725,6 @@
         document.querySelector("#language-select").value = language;
         document.querySelector("#share-button").setAttribute("aria-label", copy.shareLabel);
         applySocialProfiles(language);
-        applyProductLinks(language);
       };
 
       const applyMarket = (market) => {
