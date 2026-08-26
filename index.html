@@ -1,22 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-language="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="NOMADIA official links for stores, business inquiries, and the global waitlist.">
+  <meta name="description" content="NOMADIA official links for stores, business inquiries, and international availability updates.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#AAD5E9">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NOMADIA">
   <meta property="og:title" content="NOMADIA Official Links">
-  <meta property="og:description" content="NOMADIA official links for stores, business inquiries, and the global waitlist.">
+  <meta property="og:description" content="NOMADIA official links for stores, business inquiries, and international availability updates.">
   <meta property="og:url" content="https://tandumstudio.github.io/nomadia-link/">
   <meta property="og:image" content="https://linktr.ee/og/image/nomadiaskin.jpg">
   <meta property="og:image:alt" content="NOMADIA">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="NOMADIA Official Links">
-  <meta name="twitter:description" content="NOMADIA official links for stores, business inquiries, and the global waitlist.">
+  <meta name="twitter:description" content="NOMADIA official links for stores, business inquiries, and international availability updates.">
   <meta name="twitter:image" content="https://linktr.ee/og/image/nomadiaskin.jpg">
   <title>NOMADIA Official Links</title>
   <link rel="canonical" href="https://tandumstudio.github.io/nomadia-link/">
@@ -38,7 +38,7 @@
       "@id": "https://tandumstudio.github.io/nomadia-link/#profile",
       "url": "https://tandumstudio.github.io/nomadia-link/",
       "name": "NOMADIA Official Links",
-      "description": "NOMADIA official links for stores, business inquiries, and the global waitlist.",
+      "description": "NOMADIA official links for stores, business inquiries, and international availability updates.",
       "mainEntity": {
         "@type": "Organization",
         "name": "NOMADIA",
@@ -62,21 +62,20 @@
       --nomadia-link-page: var(--nomadia-raw-white); /* Black on White: 17.07:1. */
       --nomadia-link-frame: var(--nomadia-raw-sand); /* Black on Sand: 13.32:1. */
       --nomadia-link-surface: var(--nomadia-raw-white); /* Black on White: 17.07:1. */
-      --nomadia-link-surface-hover: var(--nomadia-raw-light-grey); /* Black on Light Grey: 8.21:1. */
-      --nomadia-link-action-surface: var(--nomadia-raw-white); /* Black on White: 17.07:1. */
-      --nomadia-link-action-hover: var(--nomadia-raw-light-grey); /* Black on Light Grey: 8.21:1. */
+      --nomadia-link-surface-inverse: var(--nomadia-raw-black); /* White on Black: 17.07:1. */
       --nomadia-link-text: var(--nomadia-raw-black);
-      --nomadia-link-text-strong: var(--nomadia-raw-dark-blue); /* On White: 9.27:1. */
-      --nomadia-link-text-muted: var(--nomadia-raw-dark-grey); /* On White: 5.92:1. */
-      --nomadia-link-border: var(--nomadia-raw-dark-grey); /* UI boundary on White: 5.92:1. */
+      --nomadia-link-text-strong: var(--nomadia-raw-black);
+      --nomadia-link-text-muted: var(--nomadia-raw-black);
+      --nomadia-link-text-inverse: var(--nomadia-raw-white);
+      --nomadia-link-border: var(--nomadia-raw-black); /* UI boundary on White: 17.07:1. */
       --nomadia-link-soft-line: var(--nomadia-raw-light-grey); /* Decorative divider only. */
-      --nomadia-link-focus-ring: var(--nomadia-raw-dark-blue); /* On White: 9.27:1. */
-      --nomadia-link-focus-surface: var(--nomadia-raw-dark-blue);
-      --nomadia-link-focus-text: var(--nomadia-raw-white); /* White on Dark Blue: 9.27:1. */
-      --nomadia-link-status-surface: var(--nomadia-raw-dark-blue);
-      --nomadia-link-status-text: var(--nomadia-raw-white); /* White on Dark Blue: 9.27:1. */
+      --nomadia-link-focus-ring: var(--nomadia-raw-black); /* On White: 17.07:1. */
+      --nomadia-link-focus-surface: var(--nomadia-raw-black);
+      --nomadia-link-focus-text: var(--nomadia-raw-white); /* Interactive inverse exception: 17.07:1. */
+      --nomadia-link-status-surface: var(--nomadia-raw-white);
+      --nomadia-link-status-text: var(--nomadia-raw-black);
       --nomadia-link-avatar-surface: var(--nomadia-raw-light-grey);
-      --nomadia-link-radius: 8px;
+      --nomadia-link-radius: 2px;
       --nomadia-link-gap: 14px;
       --nomadia-link-font-sans: "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
@@ -144,9 +143,11 @@
     .language-control {
       min-height: 42px;
       border: 1px solid var(--nomadia-link-border);
-      border-radius: 16px;
-      background: var(--nomadia-link-action-surface);
+      border-radius: var(--nomadia-link-radius);
+      background: var(--nomadia-link-surface);
+      color: var(--nomadia-link-text);
       pointer-events: auto;
+      transition: background-color 160ms ease, color 160ms ease;
     }
 
     .language-control {
@@ -161,7 +162,7 @@
       position: static;
       width: 18px;
       height: 18px;
-      color: var(--nomadia-link-text-strong);
+      color: inherit;
       pointer-events: none;
     }
 
@@ -170,7 +171,7 @@
       align-self: stretch;
       padding: 0 10px 0 0;
       border: 0;
-      border-radius: 0 16px 16px 0;
+      border-radius: var(--nomadia-link-radius);
       background: transparent;
       font-size: 13px;
       font-weight: 500;
@@ -191,7 +192,8 @@
 
     .share-button:hover,
     .language-control:hover {
-      background: var(--nomadia-link-action-hover);
+      background: var(--nomadia-link-surface-inverse);
+      color: var(--nomadia-link-text-inverse);
     }
 
     .share-button svg {
@@ -206,6 +208,7 @@
       width: max-content;
       max-width: min(260px, calc(100vw - 28px));
       padding: 8px 10px;
+      border: 1px solid var(--nomadia-link-border);
       border-radius: var(--nomadia-link-radius);
       background: var(--nomadia-link-status-surface);
       color: var(--nomadia-link-status-text);
@@ -259,20 +262,19 @@
       width: 42px;
       height: 42px;
       place-items: center;
-      border-radius: 50%;
-      color: var(--nomadia-link-text-strong);
-      transition: background-color 160ms ease, transform 160ms ease;
+      border-radius: var(--nomadia-link-radius);
+      background: var(--nomadia-link-surface);
+      color: var(--nomadia-link-text);
+      transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
     }
 
     .social-link:hover {
-      background: var(--nomadia-link-surface-hover);
+      background: var(--nomadia-link-surface-inverse);
+      color: var(--nomadia-link-text-inverse);
       transform: translateY(-1px);
     }
 
-    .social-link:focus-visible {
-      background: var(--nomadia-link-surface-hover);
-      transform: none;
-    }
+    .social-link:focus-visible { transform: none; }
 
     .social-link svg { width: 25px; height: 25px; }
 
@@ -290,9 +292,9 @@
 
     .section-title {
       margin: 0 0 12px;
-      color: var(--nomadia-link-text-strong);
+      color: var(--nomadia-link-text);
       text-align: center;
-      font-size: 13px;
+      font-size: 18px;
       font-weight: 500;
       line-height: 1.4;
       letter-spacing: 0.01em;
@@ -314,8 +316,9 @@
       border: 1px solid var(--nomadia-link-border);
       border-radius: var(--nomadia-link-radius);
       background: var(--nomadia-link-surface);
+      color: var(--nomadia-link-text);
       text-decoration: none;
-      transition: background-color 160ms ease, transform 160ms ease;
+      transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
     }
 
     .link-card::after {
@@ -324,14 +327,12 @@
     }
 
     .link-card:hover {
-      background: var(--nomadia-link-surface-hover);
+      background: var(--nomadia-link-surface-inverse);
+      color: var(--nomadia-link-text-inverse);
       transform: translateY(-1px);
     }
 
-    .link-card:focus-visible {
-      background: var(--nomadia-link-surface-hover);
-      transform: none;
-    }
+    .link-card:focus-visible { transform: none; }
 
     .link-icon {
       width: 38px;
@@ -351,12 +352,21 @@
       grid-template-columns: 1fr;
       min-height: 58px;
       padding-inline: 10px;
-      background: var(--nomadia-link-action-surface);
     }
 
-    .simple-card:hover,
-    .simple-card:focus-visible {
-      background: var(--nomadia-link-action-hover);
+    html:not([data-language="ko"]) .simple-card {
+      background: var(--nomadia-link-surface-inverse);
+      color: var(--nomadia-link-text-inverse);
+    }
+
+    html:not([data-language="ko"]) .simple-card:hover {
+      background: var(--nomadia-link-surface);
+      color: var(--nomadia-link-text);
+    }
+
+    html[data-language="ko"] .simple-card:hover {
+      background: var(--nomadia-link-surface-inverse);
+      color: var(--nomadia-link-text-inverse);
     }
 
     .simple-card::after { display: none; }
@@ -373,7 +383,7 @@
       width: 38px;
       height: 38px;
       place-items: center;
-      color: var(--nomadia-link-text-strong);
+      color: inherit;
     }
 
     .mail-icon svg { width: 22px; height: 22px; }
@@ -385,14 +395,14 @@
 
     .contact-title {
       display: block;
-      color: var(--nomadia-link-text);
+      color: inherit;
       font-size: 14px;
     }
 
     .contact-detail {
       display: block;
       margin-top: 3px;
-      color: var(--nomadia-link-text-muted);
+      color: inherit;
       font-size: 12px;
     }
 
@@ -417,6 +427,8 @@
         border-bottom: 0;
         border-radius: 14px 14px 0 0;
       }
+
+      .section-title { font-size: 20px; }
     }
 
     @media (max-width: 360px) {
@@ -472,9 +484,9 @@
     </header>
 
     <section class="section" data-section="waitlist" aria-labelledby="waitlist-title">
-      <h2 class="section-title" id="waitlist-title" data-i18n="waitlistTitle">Join the Global Waitlist</h2>
+      <h2 class="section-title" id="waitlist-title" data-i18n="waitlistTitle">International Availability Updates</h2>
       <a class="link-card simple-card" href="https://tandumstudio.github.io/nomadia-waitlist/" target="_blank" rel="noopener noreferrer">
-        <span class="link-label" data-i18n="earlyAccess">Get Early Access</span>
+        <span class="link-label" data-i18n="earlyAccess">Notify Me When It’s Available</span>
         
       </a>
     </section>
@@ -522,12 +534,12 @@
       const translations = {
         en: {
           title: "NOMADIA Official Links",
-          description: "NOMADIA official links for stores, business inquiries, and the global waitlist.",
+          description: "NOMADIA official links for stores, business inquiries, and international availability updates.",
           ogLocale: "en_US",
           bioLead: "Derma skincare for sensitive skin 🥼🤍",
           bioSub: "exploring the unknowns of sensitive skin 🔍",
-          waitlistTitle: "Join the Global Waitlist",
-          earlyAccess: "Get Early Access",
+          waitlistTitle: "International Availability Updates",
+          earlyAccess: "Notify Me When It’s Available",
           findTitle: "Where to find us",
           officialStore: "[KR] NOMADIA Official Store",
           naverStore: "[KR] NOMADIA Naver Smartstore",
@@ -544,12 +556,12 @@
         },
         ko: {
           title: "NOMADIA 공식 링크",
-          description: "NOMADIA의 구매처, 비즈니스 문의, 글로벌 웨이트리스트 공식 링크입니다.",
+          description: "NOMADIA의 구매처, 비즈니스 문의, 해외 구매 알림 공식 링크입니다.",
           ogLocale: "ko_KR",
           bioLead: "민감성 피부를 위한 더마 스킨케어 🥼🤍",
           bioSub: "민감성 피부의 미지의 영역을 탐구합니다 🔍",
-          waitlistTitle: "글로벌 웨이트리스트",
-          earlyAccess: "출시 소식 먼저 받기",
+          waitlistTitle: "해외 구매 알림받기",
+          earlyAccess: "해외 구매 소식 먼저 받기",
           findTitle: "구매처",
           officialStore: "[KR] NOMADIA 공식 온라인 스토어",
           naverStore: "[KR] 네이버 스마트스토어",
@@ -566,12 +578,12 @@
         },
         ja: {
           title: "NOMADIA 公式リンク",
-          description: "NOMADIAの購入先、ビジネスお問い合わせ、グローバルウェイトリストの公式リンクです。",
+          description: "NOMADIAの購入先、ビジネスお問い合わせ、海外購入の最新情報をまとめた公式リンクです。",
           ogLocale: "ja_JP",
           bioLead: "敏感肌のためのダーマスキンケア 🥼🤍",
           bioSub: "敏感肌の未知を探求します 🔍",
-          waitlistTitle: "グローバル・ウェイトリスト",
-          earlyAccess: "先行案内を受け取る",
+          waitlistTitle: "海外購入の最新情報",
+          earlyAccess: "販売開始のお知らせを受け取る",
           findTitle: "購入先",
           officialStore: "[韓国] NOMADIA公式ストア",
           naverStore: "[韓国] NAVERスマートストア",
