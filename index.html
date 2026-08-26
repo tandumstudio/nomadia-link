@@ -578,11 +578,11 @@
     <section class="section" data-section="products" aria-labelledby="products-title">
       <h2 class="section-title" id="products-title" data-i18n="productsTitle">Our Products</h2>
       <div class="product-grid">
-        <a class="product-card" href="https://tandumstudio.github.io/nomadia-qr/?lang=en&amp;product=milk" target="_blank" rel="noopener noreferrer">
+        <a class="product-card" data-product="milk" href="https://tandumstudio.github.io/nomadia-qr/?lang=en&amp;product=milk" target="_blank" rel="noopener noreferrer">
           <img data-i18n-alt="productMilk" src="https://ugc.production.linktr.ee/df270094-2559-4a05-8f99-f3eda3db112c_milk-hero4.png?io=true&amp;size=thumbnail-grid-carousel-v1_1" alt="Blue Calming Panthenol 1% Cleansing Milk" width="500" height="500" loading="lazy">
           <span class="product-name"><span data-i18n="productMilk">Blue Calming Panthenol 1% Cleansing Milk</span></span>
         </a>
-        <a class="product-card" href="https://tandumstudio.github.io/nomadia-qr/?lang=en&amp;product=bubble" target="_blank" rel="noopener noreferrer">
+        <a class="product-card" data-product="bubble" href="https://tandumstudio.github.io/nomadia-qr/?lang=en&amp;product=bubble" target="_blank" rel="noopener noreferrer">
           <img data-i18n-alt="productBubble" src="https://ugc.production.linktr.ee/b6cdd4a6-937d-40af-8da6-2d484d9acc01_bubble-hero4.png?io=true&amp;size=thumbnail-grid-carousel-v1_1" alt="Golden Jojoba 10% Dual Micro-bubble Cleanser" width="500" height="500" loading="lazy">
           <span class="product-name"><span data-i18n="productBubble">Golden Jojoba 10% Dual Micro-bubble Cleanser</span></span>
         </a>
@@ -793,6 +793,15 @@
         }
       };
 
+      const applyProductLinks = (language) => {
+        const koreanStoreProducts = { milk: 11, bubble: 12 };
+        for (const card of document.querySelectorAll("[data-product]")) {
+          card.href = language === "ko"
+            ? `https://nomadiaskin.com/product/detail.html?product_no=${koreanStoreProducts[card.dataset.product]}`
+            : `https://tandumstudio.github.io/nomadia-qr/?lang=${language}&product=${card.dataset.product}`;
+        }
+      };
+
       const applyLanguage = (language) => {
         const copy = translations[language];
         document.documentElement.lang = language;
@@ -817,6 +826,7 @@
         document.querySelector("#language-select").value = language;
         document.querySelector("#share-button").setAttribute("aria-label", copy.shareLabel);
         applySocialProfiles(language);
+        applyProductLinks(language);
       };
 
       const applyMarket = (market) => {
