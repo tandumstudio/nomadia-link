@@ -141,8 +141,8 @@
       pointer-events: none;
     }
 
-    .language-select,
-    .share-button {
+    .share-button,
+    .language-control {
       min-height: 42px;
       border: 1px solid var(--nomadia-link-border);
       border-radius: 16px;
@@ -151,16 +151,15 @@
     }
 
     .language-control {
-      position: relative;
-      display: flex;
+      display: grid;
+      grid-template-columns: 18px minmax(0, 1fr);
       align-items: center;
-      pointer-events: auto;
+      gap: 8px;
+      padding-left: 10px;
     }
 
     .language-icon {
-      position: absolute;
-      left: 10px;
-      z-index: 1;
+      position: static;
       width: 18px;
       height: 18px;
       color: var(--nomadia-link-text-strong);
@@ -168,7 +167,12 @@
     }
 
     .language-select {
-      padding: 0 10px 0 34px;
+      min-width: 0;
+      align-self: stretch;
+      padding: 0 10px 0 0;
+      border: 0;
+      border-radius: 0 16px 16px 0;
+      background: transparent;
       font-size: 13px;
       font-weight: 500;
     }
@@ -187,7 +191,7 @@
     }
 
     .share-button:hover,
-    .language-select:hover {
+    .language-control:hover {
       background: var(--nomadia-link-action-hover);
     }
 
@@ -446,9 +450,6 @@
     }
 
 
-    @media (max-width: 575px) {
-      .language-select { padding-left: 42px; }
-    }
     @media (min-width: 576px) {
       body {
         background: var(--nomadia-link-frame);
@@ -527,19 +528,19 @@
     <section class="section" data-section="stores" aria-labelledby="find-title">
       <h2 class="section-title" id="find-title" data-i18n="findTitle">Where to find us</h2>
       <div class="link-list">
-        <a class="link-card" data-country="KR" href="https://nomadiaskin.kr/" target="_blank" rel="noopener noreferrer">
+        <a class="link-card" data-country="KR" data-store="official" href="https://nomadiaskin.kr/" target="_blank" rel="noopener noreferrer">
           <img class="link-icon" src="https://ugc.production.linktr.ee/5b7694e3-904a-49f9-afd2-c23b1409828b_nomadia-logo-final-260106-lockup-720.jpeg?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
           <span class="link-label" data-i18n="officialStore">[KR] NOMADIA Official Store</span>
         </a>
-        <a class="link-card" data-country="KR" href="https://smartstore.naver.com/nomadiaskin" target="_blank" rel="noopener noreferrer">
+        <a class="link-card" data-country="KR" data-store="naver" href="https://smartstore.naver.com/nomadiaskin" target="_blank" rel="noopener noreferrer">
           <img class="link-icon" src="https://ugc.production.linktr.ee/835da03e-ff03-4ece-a11f-af491ad00f55_images.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
           <span class="link-label" data-i18n="naverStore">[KR] NOMADIA Naver Smartstore</span>
         </a>
-        <a class="link-card" data-country="KR" href="https://www.google.com/maps/d/u/0/edit?mid=1We0va4eRn_nZzpmThloYP2zWF8hTKeQ&amp;usp=sharing" target="_blank" rel="noopener noreferrer">
+        <a class="link-card" data-country="KR" data-store="pharmacy" href="https://www.google.com/maps/d/u/0/edit?mid=1We0va4eRn_nZzpmThloYP2zWF8hTKeQ&amp;usp=sharing" target="_blank" rel="noopener noreferrer">
           <img class="link-icon" src="https://ugc.production.linktr.ee/5c20da5b-fd58-412f-bdfe-f964dc845513_Google-Maps-Logo-1.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
           <span class="link-label" data-i18n="pharmacyMap">[KR] Offline Pharmacy Stocklist</span>
         </a>
-        <a class="link-card" data-country="JP" href="https://www.qoo10.jp/shop/nomadia" target="_blank" rel="noopener noreferrer">
+        <a class="link-card" data-country="JP" data-store="qoo10" href="https://www.qoo10.jp/shop/nomadia" target="_blank" rel="noopener noreferrer">
           <img class="link-icon" src="https://ugc.production.linktr.ee/d5bc6f3d-90f8-4705-9184-0253e27f1ad4_images.jpeg?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
           <span class="link-label" data-i18n="qoo10">[JP] Qoo10</span>
         </a>
@@ -613,7 +614,7 @@
           waitlistTitle: "글로벌 웨이트리스트",
           earlyAccess: "출시 소식 먼저 받기",
           findTitle: "구매처",
-          officialStore: "[KR] NOMADIA 공식몰",
+          officialStore: "[KR] NOMADIA 공식 온라인 스토어",
           naverStore: "[KR] 네이버 스마트스토어",
           pharmacyMap: "[KR] 노마디아 입점 약국 지도",
           qoo10: "[JP] Qoo10 공식 스토어",
@@ -673,6 +674,11 @@
         GLOBAL: ["waitlist", "stores", "products", "business"],
         KR: ["stores", "waitlist", "products", "business"],
         JP: ["stores", "waitlist", "products", "business"]
+      };
+      const storeOrder = {
+        GLOBAL: ["official", "naver", "pharmacy", "qoo10"],
+        KR: ["official", "naver", "pharmacy", "qoo10"],
+        JP: ["qoo10", "official", "naver", "pharmacy"]
       };
 
       const normalizeLanguage = (value) => {
@@ -810,13 +816,13 @@
           main.insertBefore(main.querySelector(`[data-section="${sectionName}"]`), footer);
         }
 
-        const countryPriority = market === "JP" ? ["JP", "KR"] : ["KR", "JP"];
+        const storePriority = storeOrder[market];
         const storeList = main.querySelector('[data-section="stores"] .link-list');
-        const storeCards = [...storeList.querySelectorAll("[data-country]")];
+        const storeCards = [...storeList.querySelectorAll("[data-store]")];
         storeCards
           .sort((left, right) =>
-            countryPriority.indexOf(left.dataset.country) -
-            countryPriority.indexOf(right.dataset.country)
+            storePriority.indexOf(left.dataset.store) -
+            storePriority.indexOf(right.dataset.store)
           )
           .forEach((card) => storeList.append(card));
       };
