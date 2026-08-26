@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Derma skincare for sensitive skin. Exploring the unknowns of sensitive skin.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="NOMADIA Official Links">
+  <meta property="og:description" content="Derma skincare for sensitive skin. Exploring the unknowns of sensitive skin.">
+  <meta property="og:image" content="https://linktr.ee/og/image/nomadiaskin.jpg">
+  <title>NOMADIA Official Links</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://ugc.production.linktr.ee">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #ffffff;
+      --frame: #e8e8e8;
+      --ink: #111111;
+      --muted: #616161;
+      --line: #646464;
+      --soft-line: #d4d4d4;
+      --radius: 8px;
+      --gap: 14px;
+      --font-sans: "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-height: 100%;
+      background: var(--frame);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0 auto;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(100%, 580px);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 40px var(--gap) 44px;
+      background: var(--paper);
+    }
+
+    .profile {
+      display: grid;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #d9e2e5;
+    }
+
+    h1 {
+      margin: 16px 0 5px;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .bio {
+      max-width: 360px;
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .bio strong { font-weight: 500; }
+
+    .socials {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .social-link {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 50%;
+      transition: background-color 160ms ease, transform 160ms ease;
+    }
+
+    .social-link:hover,
+    .social-link:focus-visible {
+      background: #f1f1f1;
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .social-link svg { width: 25px; height: 25px; }
+
+    .section { margin-top: 30px; }
+
+    .section-title {
+      margin: 0 0 12px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+    }
+
+    .link-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .link-card {
+      position: relative;
+      display: grid;
+      min-height: 58px;
+      grid-template-columns: 42px 1fr 20px;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      text-decoration: none;
+      transition: background-color 160ms ease, transform 160ms ease;
+    }
+
+    .link-card:hover,
+    .link-card:focus-visible,
+    .product-card:hover,
+    .product-card:focus-visible {
+      background: #f7f7f5;
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .link-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .link-label {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.35;
+    }
+
+    .more {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+
+    .simple-card {
+      grid-template-columns: 1fr 20px;
+      min-height: 58px;
+      padding-left: 30px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      color: inherit;
+      text-decoration: none;
+      transition: background-color 160ms ease, transform 160ms ease;
+    }
+
+    .product-card + .product-card { border-left: 1px solid var(--soft-line); }
+
+    .product-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: #f1f1ef;
+    }
+
+    .product-name {
+      display: grid;
+      min-height: 74px;
+      grid-template-columns: 1fr 18px;
+      align-items: start;
+      gap: 5px;
+      padding: 10px 8px 9px;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.35;
+    }
+
+    .contact-card {
+      grid-template-columns: 38px 1fr 20px;
+      min-height: 64px;
+    }
+
+    .mail-icon {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+    }
+
+    .mail-icon svg { width: 22px; height: 22px; }
+
+    .contact-copy {
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    .contact-copy span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer {
+      margin-top: 42px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    footer a {
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    @media (min-width: 576px) {
+      .page {
+        margin-top: 40px;
+        border-radius: 14px 14px 0 0;
+        box-shadow: 0 24px 32px rgb(0 0 0 / 0.12);
+      }
+    }
+
+    @media (max-width: 360px) {
+      .page { padding-inline: 10px; }
+      .product-name { font-size: 12px; }
+      .link-label { font-size: 13px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="profile">
+      <img
+        class="avatar"
+        src="https://ugc.production.linktr.ee/09f92266-7574-4f33-9c3a-9967e7190dba_IMG-2174.png?io=true&amp;size=avatar-v3_0"
+        alt="NOMADIA"
+        width="86"
+        height="86"
+      >
+      <h1>NOMADIA</h1>
+      <p class="bio"><strong>Derma skincare for sensitive skin 🥼🤍</strong><br>exploring the unknowns of sensitive skin 🔍</p>
+      <nav class="socials" aria-label="NOMADIA social profiles">
+        <a class="social-link" href="https://instagram.com/nomadiaskin" target="_blank" rel="noopener noreferrer" aria-label="NOMADIA Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+        </a>
+        <a class="social-link" href="https://tiktok.com/@nomadiaskin" target="_blank" rel="noopener noreferrer" aria-label="NOMADIA TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.8 2c.24 1.78 1.22 3.25 2.68 4.23A7.2 7.2 0 0 0 22 7.4v3.45a10.5 10.5 0 0 1-6.2-2.03v6.55a6.63 6.63 0 1 1-5.72-6.57v3.48a3.2 3.2 0 1 0 2.3 3.08V2h3.42Z"/></svg>
+        </a>
+      </nav>
+    </header>
+
+    <section class="section" aria-labelledby="waitlist-title">
+      <h2 class="section-title" id="waitlist-title">Join the Global Waitlist</h2>
+      <a class="link-card simple-card" href="https://nomadiaskin.kr/" target="_blank" rel="noopener noreferrer">
+        <span class="link-label">Get Early Access</span>
+        <span class="more" aria-hidden="true">⋮</span>
+      </a>
+    </section>
+
+    <section class="section" aria-labelledby="find-title">
+      <h2 class="section-title" id="find-title">Where to find us</h2>
+      <div class="link-list">
+        <a class="link-card" href="https://nomadiaskin.kr/" target="_blank" rel="noopener noreferrer">
+          <img class="link-icon" src="https://ugc.production.linktr.ee/5b7694e3-904a-49f9-afd2-c23b1409828b_nomadia-logo-final-260106-lockup-720.jpeg?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
+          <span class="link-label">[KR] NOMADIA Official Store</span><span class="more" aria-hidden="true">⋮</span>
+        </a>
+        <a class="link-card" href="https://smartstore.naver.com/nomadiaskin" target="_blank" rel="noopener noreferrer">
+          <img class="link-icon" src="https://ugc.production.linktr.ee/835da03e-ff03-4ece-a11f-af491ad00f55_images.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
+          <span class="link-label">[KR] NOMADIA Naver Smartstore</span><span class="more" aria-hidden="true">⋮</span>
+        </a>
+        <a class="link-card" href="https://www.hwahae.co.kr/search?q=%25EB%2585%25B8%25EB%25A7%2588%25EB%2594%2594%25EC%2595%2584" target="_blank" rel="noopener noreferrer">
+          <img class="link-icon" src="https://ugc.production.linktr.ee/82d9ae65-af74-41f0-86e9-73c7c45d96fd_unnamed.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
+          <span class="link-label">[KR] Hwahae Shopping</span><span class="more" aria-hidden="true">⋮</span>
+        </a>
+        <a class="link-card" href="https://www.google.com/maps/d/u/0/edit?mid=1We0va4eRn_nZzpmThloYP2zWF8hTKeQ&amp;usp=sharing" target="_blank" rel="noopener noreferrer">
+          <img class="link-icon" src="https://ugc.production.linktr.ee/5c20da5b-fd58-412f-bdfe-f964dc845513_Google-Maps-Logo-1.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
+          <span class="link-label">[KR] Offline Pharmacy Stocklist</span><span class="more" aria-hidden="true">⋮</span>
+        </a>
+        <a class="link-card" href="https://www.qoo10.jp/shop/nomadia" target="_blank" rel="noopener noreferrer">
+          <img class="link-icon" src="https://ugc.production.linktr.ee/d5bc6f3d-90f8-4705-9184-0253e27f1ad4_images.jpeg?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
+          <span class="link-label">[JP] Qoo10</span><span class="more" aria-hidden="true">⋮</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="products-title">
+      <h2 class="section-title" id="products-title">Our Products</h2>
+      <div class="product-grid">
+        <a class="product-card" href="https://tandumstudio.github.io/nomadia-qr/?lang=en&amp;product=milk" target="_blank" rel="noopener noreferrer">
+          <img src="https://ugc.production.linktr.ee/df270094-2559-4a05-8f99-f3eda3db112c_milk-hero4.png?io=true&amp;size=thumbnail-grid-carousel-v1_1" alt="Blue Calming Panthenol 1% Cleansing Milk" width="500" height="500" loading="lazy">
+          <span class="product-name"><span>Blue Calming Panthenol 1% Cleansing Milk</span><span class="more" aria-hidden="true">⋮</span></span>
+        </a>
+        <a class="product-card" href="https://tandumstudio.github.io/nomadia-qr/?lang=en&amp;product=bubble" target="_blank" rel="noopener noreferrer">
+          <img src="https://ugc.production.linktr.ee/b6cdd4a6-937d-40af-8da6-2d484d9acc01_bubble-hero4.png?io=true&amp;size=thumbnail-grid-carousel-v1_1" alt="Golden Jojoba 10% Dual Micro-bubble Cleanser" width="500" height="500" loading="lazy">
+          <span class="product-name"><span>Golden Jojoba 10% Dual Micro-bubble Cleanser</span><span class="more" aria-hidden="true">⋮</span></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Business inquiries">
+      <a class="link-card contact-card" href="mailto:b2b-g@tandumstudio.com">
+        <span class="mail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 5h17A2.5 2.5 0 0 1 23 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 1 16.5v-9A2.5 2.5 0 0 1 3.5 5Zm0 2a.5.5 0 0 0-.5.5v.2l9 5.55 9-5.55v-.2a.5.5 0 0 0-.5-.5h-17ZM21 10.05l-8.48 5.23a1 1 0 0 1-1.04 0L3 10.05v6.45a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5v-6.45Z"/></svg></span>
+        <span class="contact-copy">Business Inquiries<span>Email · b2b-g@tandumstudio.com</span></span>
+        <span class="more" aria-hidden="true">⋮</span>
+      </a>
+    </section>
+
+    <footer>
+      <span>NOMADIA · Science for the Sensitive</span><br>
+      <a href="https://linktr.ee/nomadiaskin" target="_blank" rel="noopener noreferrer">View current Linktree</a>
+    </footer>
+  </main>
+</body>
+</html>
