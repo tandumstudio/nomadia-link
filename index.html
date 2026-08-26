@@ -44,8 +44,10 @@
         "url": "https://nomadiaskin.kr/",
         "logo": "https://linktr.ee/og/image/nomadiaskin.jpg",
         "sameAs": [
-          "https://instagram.com/nomadiaskin",
-          "https://tiktok.com/@nomadiaskin",
+          "https://www.instagram.com/nomadiaskin",
+          "https://www.tiktok.com/@nomadiaskin",
+          "https://www.instagram.com/nomadiaskin.kr",
+          "https://www.threads.com/@nomadiaskin.kr",
           "https://linktr.ee/nomadiaskin"
         ]
       }
@@ -56,11 +58,12 @@
       color-scheme: light;
       --paper: #ffffff;
       --surface: #fbfaf5;
-      --frame: #e1e2dc;
+      --frame: #c7c0af;
       --ink: #1c241e;
-      --muted: #5e665b;
-      --line: #8b9388;
-      --soft-line: #d8dad3;
+      --ink-soft: #46503f;
+      --muted: #77735f;
+      --line: #a0a0a0;
+      --line-strong: #c7c0af;
       --accent: #55684e;
       --focus: #2f5a3b;
       --radius: 8px;
@@ -78,12 +81,23 @@
     }
 
     body {
+      position: relative;
       min-height: 100vh;
       margin: 0 auto;
+      overflow-x: hidden;
       background: var(--paper);
       color: var(--ink);
       font-size: 15px;
       line-height: 1.6;
+      isolation: isolate;
+    }
+
+    body::before,
+    body::after {
+      position: fixed;
+      display: none;
+      pointer-events: none;
+      content: "";
     }
 
     a { color: inherit; }
@@ -270,6 +284,16 @@
 
     .social-link svg { width: 25px; height: 25px; }
 
+    .threads-icon {
+      display: grid;
+      width: 25px;
+      height: 25px;
+      place-items: center;
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
     .section { margin-top: 30px; }
 
     .section-title {
@@ -427,9 +451,38 @@
 
 
     @media (min-width: 576px) {
+      body {
+        background: transparent;
+      }
+
+      body::before {
+        inset: -64px;
+        z-index: 0;
+        display: block;
+        background-color: var(--line-strong);
+        background-image: url("https://ugc.production.linktr.ee/09f92266-7574-4f33-9c3a-9967e7190dba_IMG-2174.png?io=true&size=avatar-v3_0");
+        background-position: center;
+        background-size: cover;
+        filter: blur(48px) saturate(0.7);
+        opacity: 0.58;
+        transform: scale(1.08);
+      }
+
+      body::after {
+        inset: 0;
+        z-index: 0;
+        display: block;
+        background: rgba(199, 192, 175, 0.52);
+        backdrop-filter: blur(8px);
+      }
+
       .page {
+        z-index: 1;
         margin-top: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.72);
         border-radius: 14px 14px 0 0;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(18px);
       }
     }
 
@@ -479,11 +532,12 @@
       <h1>NOMADIA</h1>
       <p class="bio"><strong data-i18n="bioLead">Derma skincare for sensitive skin 🥼🤍</strong><br><span data-i18n="bioSub">exploring the unknowns of sensitive skin 🔍</span></p>
       <nav class="socials" aria-label="NOMADIA social profiles">
-        <a class="social-link" href="https://instagram.com/nomadiaskin" target="_blank" rel="noopener noreferrer" aria-label="NOMADIA Instagram">
+        <a class="social-link" data-social="instagram" href="https://www.instagram.com/nomadiaskin" target="_blank" rel="noopener noreferrer" aria-label="NOMADIA Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
         </a>
-        <a class="social-link" href="https://tiktok.com/@nomadiaskin" target="_blank" rel="noopener noreferrer" aria-label="NOMADIA TikTok">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.8 2c.24 1.78 1.22 3.25 2.68 4.23A7.2 7.2 0 0 0 22 7.4v3.45a10.5 10.5 0 0 1-6.2-2.03v6.55a6.63 6.63 0 1 1-5.72-6.57v3.48a3.2 3.2 0 1 0 2.3 3.08V2h3.42Z"/></svg>
+        <a class="social-link" data-social="secondary" href="https://www.tiktok.com/@nomadiaskin" target="_blank" rel="noopener noreferrer" aria-label="NOMADIA TikTok">
+          <svg data-social-icon="tiktok" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.8 2c.24 1.78 1.22 3.25 2.68 4.23A7.2 7.2 0 0 0 22 7.4v3.45a10.5 10.5 0 0 1-6.2-2.03v6.55a6.63 6.63 0 1 1-5.72-6.57v3.48a3.2 3.2 0 1 0 2.3 3.08V2h3.42Z"/></svg>
+          <span class="threads-icon" data-social-icon="threads" hidden>@</span>
         </a>
       </nav>
     </header>
@@ -631,6 +685,20 @@
           copyFailed: "アドレスバーからページURLをコピーしてください"
         }
       };
+      const socialProfiles = {
+        en: {
+          instagram: { href: "https://www.instagram.com/nomadiaskin", label: "NOMADIA Instagram" },
+          secondary: { href: "https://www.tiktok.com/@nomadiaskin", label: "NOMADIA TikTok", icon: "tiktok" }
+        },
+        ko: {
+          instagram: { href: "https://www.instagram.com/nomadiaskin.kr", label: "NOMADIA 한국어 Instagram" },
+          secondary: { href: "https://www.threads.com/@nomadiaskin.kr", label: "NOMADIA 한국어 Threads", icon: "threads" }
+        },
+        ja: {
+          instagram: { href: "https://www.instagram.com/nomadiaskin", label: "NOMADIA Instagram" },
+          secondary: { href: "https://www.tiktok.com/@nomadiaskin", label: "NOMADIA TikTok", icon: "tiktok" }
+        }
+      };
       const sectionOrder = {
         GLOBAL: ["waitlist", "stores", "products", "business"],
         KR: ["stores", "products", "business", "waitlist"],
@@ -704,6 +772,19 @@
         }
       };
 
+      const applySocialProfiles = (language) => {
+        const profiles = socialProfiles[language];
+        const instagram = document.querySelector('[data-social="instagram"]');
+        const secondary = document.querySelector('[data-social="secondary"]');
+        instagram.href = profiles.instagram.href;
+        instagram.setAttribute("aria-label", profiles.instagram.label);
+        secondary.href = profiles.secondary.href;
+        secondary.setAttribute("aria-label", profiles.secondary.label);
+        for (const icon of secondary.querySelectorAll("[data-social-icon]")) {
+          icon.toggleAttribute("hidden", icon.dataset.socialIcon !== profiles.secondary.icon);
+        }
+      };
+
       const applyLanguage = (language) => {
         const copy = translations[language];
         document.documentElement.lang = language;
@@ -727,6 +808,7 @@
         document.querySelector('[data-section="business"]').setAttribute("aria-label", copy.business);
         document.querySelector("#language-select").value = language;
         document.querySelector("#share-button").setAttribute("aria-label", copy.shareLabel);
+        applySocialProfiles(language);
       };
 
       const applyMarket = (market) => {
