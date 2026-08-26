@@ -87,7 +87,7 @@
 
     a { color: inherit; }
 
-    a:focus-visible {
+    :where(a, button, select):focus-visible {
       outline: 3px solid var(--focus);
       outline-offset: 3px;
     }
@@ -95,6 +95,7 @@
     [hidden] { display: none !important; }
 
     .page {
+      position: relative;
       width: min(100%, 580px);
       min-height: 100vh;
       margin: 0 auto;
@@ -105,7 +106,98 @@
     .profile {
       display: grid;
       justify-items: center;
+      padding-top: 22px;
       text-align: center;
+    }
+
+    button,
+    select {
+      color: inherit;
+      font: inherit;
+    }
+
+    .topbar {
+      position: absolute;
+      top: 14px;
+      right: var(--gap);
+      left: var(--gap);
+      z-index: 2;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .language-select,
+    .share-button {
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      backdrop-filter: blur(10px);
+      pointer-events: auto;
+    }
+
+    .language-select {
+      padding: 0 10px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .share-control {
+      position: relative;
+      pointer-events: auto;
+    }
+
+    .share-button {
+      display: grid;
+      width: 42px;
+      padding: 0;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .share-button:hover,
+    .language-select:hover {
+      background: #f3f3ec;
+    }
+
+    .share-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .share-status {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: max-content;
+      max-width: min(260px, calc(100vw - 28px));
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-4px);
+      transition: opacity 160ms ease, transform 160ms ease;
+    }
+
+    .share-status[data-visible="true"] {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     .avatar {
@@ -315,10 +407,6 @@
       line-height: 1.5;
     }
 
-    footer a {
-      text-underline-offset: 3px;
-      text-decoration-thickness: 1px;
-    }
 
     @media (min-width: 576px) {
       .page {
@@ -340,6 +428,22 @@
 </head>
 <body>
   <main class="page">
+    <div class="topbar" role="group" aria-label="Page controls" data-i18n-aria="controlsLabel">
+      <label class="sr-only" id="language-label" for="language-select" data-i18n="languageLabel">Language</label>
+      <select class="language-select" id="language-select" aria-labelledby="language-label">
+        <option value="en">English</option>
+        <option value="ko">한국어</option>
+        <option value="ja">日本語</option>
+      </select>
+      <div class="share-control">
+        <button class="share-button" id="share-button" type="button" aria-label="Share page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 2a1 1 0 0 1 .7.3l4 4a1 1 0 0 1-1.4 1.4L13 5.41V15a1 1 0 1 1-2 0V5.41L7.7 7.7a1 1 0 0 1-1.4-1.4l4-4A1 1 0 0 1 12 2Zm-6 9a1 1 0 0 1 1 1v7h10v-7a1 1 0 1 1 2 0v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7a1 1 0 0 1 1-1Z"/>
+          </svg>
+        </button>
+        <span class="share-status" id="share-status" role="status" aria-live="polite"></span>
+      </div>
+    </div>
     <header class="profile">
       <img
         class="avatar"
@@ -379,7 +483,7 @@
           <img class="link-icon" src="https://ugc.production.linktr.ee/835da03e-ff03-4ece-a11f-af491ad00f55_images.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
           <span class="link-label" data-i18n="naverStore">[KR] NOMADIA Naver Smartstore</span>
         </a>
-        <a class="link-card" data-country="KR" href="https://www.hwahae.co.kr/search?q=%25EB%2585%25B8%25EB%25A7%2588%25EB%2594%2594%25EC%2595%2584" target="_blank" rel="noopener noreferrer">
+        <a class="link-card" data-country="KR" href="https://www.hwahae.co.kr/search?q=%EB%85%B8%EB%A7%88%EB%94%94%EC%95%84" target="_blank" rel="noopener noreferrer">
           <img class="link-icon" src="https://ugc.production.linktr.ee/82d9ae65-af74-41f0-86e9-73c7c45d96fd_unnamed.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
           <span class="link-label" data-i18n="hwahae">[KR] Hwahae Shopping</span>
         </a>
@@ -398,12 +502,12 @@
       <h2 class="section-title" id="products-title" data-i18n="productsTitle">Our Products</h2>
       <div class="product-grid">
         <a class="product-card" href="https://tandumstudio.github.io/nomadia-qr/?lang=en&amp;product=milk" target="_blank" rel="noopener noreferrer">
-          <img src="https://ugc.production.linktr.ee/df270094-2559-4a05-8f99-f3eda3db112c_milk-hero4.png?io=true&amp;size=thumbnail-grid-carousel-v1_1" alt="Blue Calming Panthenol 1% Cleansing Milk" width="500" height="500" loading="lazy">
-          <span class="product-name"><span>Blue Calming Panthenol 1% Cleansing Milk</span></span>
+          <img data-i18n-alt="productMilk" src="https://ugc.production.linktr.ee/df270094-2559-4a05-8f99-f3eda3db112c_milk-hero4.png?io=true&amp;size=thumbnail-grid-carousel-v1_1" alt="Blue Calming Panthenol 1% Cleansing Milk" width="500" height="500" loading="lazy">
+          <span class="product-name"><span data-i18n="productMilk">Blue Calming Panthenol 1% Cleansing Milk</span></span>
         </a>
         <a class="product-card" href="https://tandumstudio.github.io/nomadia-qr/?lang=en&amp;product=bubble" target="_blank" rel="noopener noreferrer">
-          <img src="https://ugc.production.linktr.ee/b6cdd4a6-937d-40af-8da6-2d484d9acc01_bubble-hero4.png?io=true&amp;size=thumbnail-grid-carousel-v1_1" alt="Golden Jojoba 10% Dual Micro-bubble Cleanser" width="500" height="500" loading="lazy">
-          <span class="product-name"><span>Golden Jojoba 10% Dual Micro-bubble Cleanser</span></span>
+          <img data-i18n-alt="productBubble" src="https://ugc.production.linktr.ee/b6cdd4a6-937d-40af-8da6-2d484d9acc01_bubble-hero4.png?io=true&amp;size=thumbnail-grid-carousel-v1_1" alt="Golden Jojoba 10% Dual Micro-bubble Cleanser" width="500" height="500" loading="lazy">
+          <span class="product-name"><span data-i18n="productBubble">Golden Jojoba 10% Dual Micro-bubble Cleanser</span></span>
         </a>
       </div>
     </section>
@@ -417,8 +521,7 @@
     </section>
 
     <footer>
-      <span>NOMADIA · Science for the Sensitive</span><br>
-      <a href="https://linktr.ee/nomadiaskin" target="_blank" rel="noopener noreferrer" data-i18n="sourceLink">View original links page</a>
+      <span>NOMADIA · Science for the Sensitive</span>
     </footer>
   </main>
 
@@ -443,9 +546,15 @@
           pharmacyMap: "[KR] Offline Pharmacy Stocklist",
           qoo10: "[JP] Qoo10 Official Store",
           productsTitle: "Our Products",
+          productMilk: "Blue Calming Panthenol 1% Cleansing Milk",
+          productBubble: "Golden Jojoba 10% Dual Micro-bubble Cleanser",
           business: "Business Inquiries",
           email: "Email",
-          sourceLink: "View original links page"
+          controlsLabel: "Page controls",
+          languageLabel: "Language",
+          shareLabel: "Share page",
+          copied: "Link copied",
+          copyFailed: "Copy the page URL from the address bar"
         },
         ko: {
           title: "NOMADIA 공식 링크",
@@ -462,9 +571,15 @@
           pharmacyMap: "[KR] 오프라인 약국 재고 지도",
           qoo10: "[JP] Qoo10 공식 스토어",
           productsTitle: "제품",
+          productMilk: "노마디아 블루 진정 판테놀 1% 클렌징 밀크",
+          productBubble: "골든 호호바 10% 듀얼 마이크로 버블 클렌저",
           business: "비즈니스 문의",
           email: "이메일",
-          sourceLink: "기존 링크 페이지 보기"
+          controlsLabel: "페이지 설정",
+          languageLabel: "언어",
+          shareLabel: "페이지 공유",
+          copied: "링크를 복사했습니다",
+          copyFailed: "주소창에서 페이지 주소를 복사해 주세요"
         },
         ja: {
           title: "NOMADIA 公式リンク",
@@ -481,9 +596,15 @@
           pharmacyMap: "[韓国] オフライン薬局マップ",
           qoo10: "[日本] Qoo10公式ストア",
           productsTitle: "製品",
+          productMilk: "Blue Calming Panthenol 1% Cleansing Milk",
+          productBubble: "Golden Jojoba 10% Dual Micro-bubble Cleanser",
           business: "ビジネスに関するお問い合わせ",
           email: "メール",
-          sourceLink: "元のリンクページを見る"
+          controlsLabel: "ページ設定",
+          languageLabel: "言語",
+          shareLabel: "ページを共有",
+          copied: "リンクをコピーしました",
+          copyFailed: "アドレスバーからページURLをコピーしてください"
         }
       };
       const sectionOrder = {
@@ -562,6 +683,7 @@
       const applyLanguage = (language) => {
         const copy = translations[language];
         document.documentElement.lang = language;
+        document.documentElement.dataset.language = language;
         document.title = copy.title;
         document.querySelector('meta[name="description"]').content = copy.description;
         document.querySelector('meta[property="og:title"]').content = copy.title;
@@ -572,7 +694,15 @@
         for (const element of document.querySelectorAll("[data-i18n]")) {
           element.textContent = copy[element.dataset.i18n];
         }
+        for (const image of document.querySelectorAll("[data-i18n-alt]")) {
+          image.alt = copy[image.dataset.i18nAlt];
+        }
+        for (const element of document.querySelectorAll("[data-i18n-aria]")) {
+          element.setAttribute("aria-label", copy[element.dataset.i18nAria]);
+        }
         document.querySelector('[data-section="business"]').setAttribute("aria-label", copy.business);
+        document.querySelector("#language-select").value = language;
+        document.querySelector("#share-button").setAttribute("aria-label", copy.shareLabel);
       };
 
       const applyMarket = (market) => {
@@ -592,6 +722,71 @@
           )
           .forEach((card) => storeList.append(card));
       };
+
+      const languageSelect = document.querySelector("#language-select");
+      const shareButton = document.querySelector("#share-button");
+      const shareStatus = document.querySelector("#share-status");
+      let shareStatusTimeout;
+
+      const announceShareStatus = (message) => {
+        window.clearTimeout(shareStatusTimeout);
+        shareStatus.textContent = message;
+        shareStatus.dataset.visible = "true";
+        shareStatusTimeout = window.setTimeout(() => {
+          shareStatus.dataset.visible = "false";
+        }, 2400);
+      };
+
+      const currentShareUrl = () => {
+        const url = new URL(document.querySelector('link[rel="canonical"]').href);
+        url.searchParams.set("lang", document.documentElement.dataset.language || detectLanguage());
+        return url.href;
+      };
+
+      const copyShareUrl = async (url) => {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(url);
+          return true;
+        }
+        const input = document.createElement("textarea");
+        input.value = url;
+        input.setAttribute("readonly", "");
+        input.style.position = "fixed";
+        input.style.opacity = "0";
+        document.body.append(input);
+        input.select();
+        const copied = document.execCommand("copy");
+        input.remove();
+        return copied;
+      };
+
+      languageSelect.addEventListener("change", () => {
+        const language = normalizeLanguage(languageSelect.value) || "en";
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", language);
+        window.history.replaceState({}, "", url);
+        applyLanguage(language);
+      });
+
+      shareButton.addEventListener("click", async () => {
+        const language = document.documentElement.dataset.language || detectLanguage();
+        const copy = translations[language];
+        const url = currentShareUrl();
+        if (typeof navigator.share === "function") {
+          try {
+            await navigator.share({ title: copy.title, text: copy.description, url });
+            return;
+          } catch (error) {
+            if (error?.name === "AbortError") return;
+          }
+        }
+        try {
+          const copied = await copyShareUrl(url);
+          announceShareStatus(copied ? copy.copied : copy.copyFailed);
+        } catch {
+          announceShareStatus(copy.copyFailed);
+        }
+      });
 
       const start = async () => {
         const language = detectLanguage();
