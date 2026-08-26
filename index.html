@@ -139,8 +139,25 @@
       pointer-events: auto;
     }
 
+    .language-control {
+      position: relative;
+      display: flex;
+      align-items: center;
+      pointer-events: auto;
+    }
+
+    .language-icon {
+      position: absolute;
+      left: 10px;
+      z-index: 1;
+      width: 18px;
+      height: 18px;
+      color: var(--accent);
+      pointer-events: none;
+    }
+
     .language-select {
-      padding: 0 10px;
+      padding: 0 10px 0 34px;
       font-size: 13px;
       font-weight: 500;
     }
@@ -430,12 +447,18 @@
 <body>
   <main class="page">
     <div class="topbar" role="group" aria-label="Page controls" data-i18n-aria="controlsLabel">
-      <label class="sr-only" id="language-label" for="language-select" data-i18n="languageLabel">Language</label>
-      <select class="language-select" id="language-select" aria-labelledby="language-label">
-        <option value="en">English</option>
-        <option value="ko">한국어</option>
-        <option value="ja">日本語</option>
-      </select>
+      <div class="language-control">
+        <svg class="language-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M3 12h18M12 3c2.2 2.45 3.35 5.45 3.35 9S14.2 18.55 12 21M12 3C9.8 5.45 8.65 8.45 8.65 12S9.8 18.55 12 21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <label class="sr-only" id="language-label" for="language-select" data-i18n="languageLabel">Language</label>
+        <select class="language-select" id="language-select" aria-labelledby="language-label">
+          <option value="en">English</option>
+          <option value="ko">한국어</option>
+          <option value="ja">日本語</option>
+        </select>
+      </div>
       <div class="share-control">
         <button class="share-button" id="share-button" type="button" aria-label="Share page">
           <svg viewBox="0 0 24 24" aria-hidden="true">
