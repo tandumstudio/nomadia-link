@@ -198,9 +198,11 @@
 
     .product-card img {
       width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      background: #f1f1ef;
+      height: clamp(132px, 36vw, 168px);
+      padding: 8px;
+      object-fit: contain;
+      object-position: center;
+      background: #f7f7f5;
     }
 
     .product-name {
@@ -511,11 +513,15 @@
           main.insertBefore(main.querySelector(`[data-section="${sectionName}"]`), footer);
         }
 
-        const waitlist = main.querySelector('[data-section="waitlist"]');
-        waitlist.hidden = market === "KR";
-        for (const card of main.querySelectorAll("[data-country]")) {
-          card.hidden = market !== "GLOBAL" && card.dataset.country !== market;
-        }
+        const countryPriority = market === "JP" ? ["JP", "KR"] : ["KR", "JP"];
+        const storeList = main.querySelector('[data-section="stores"] .link-list');
+        const storeCards = [...storeList.querySelectorAll("[data-country]")];
+        storeCards
+          .sort((left, right) =>
+            countryPriority.indexOf(left.dataset.country) -
+            countryPriority.indexOf(right.dataset.country)
+          )
+          .forEach((card) => storeList.append(card));
       };
 
       const start = async () => {
