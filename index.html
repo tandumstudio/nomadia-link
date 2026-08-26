@@ -561,6 +561,10 @@
           <img class="link-icon" src="https://ugc.production.linktr.ee/835da03e-ff03-4ece-a11f-af491ad00f55_images.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
           <span class="link-label" data-i18n="naverStore">[KR] NOMADIA Naver Smartstore</span>
         </a>
+        <a class="link-card" data-country="KR" href="https://www.hwahae.co.kr/search?q=%EB%85%B8%EB%A7%88%EB%94%94%EC%95%84" target="_blank" rel="noopener noreferrer">
+          <img class="link-icon" src="https://ugc.production.linktr.ee/82d9ae65-af74-41f0-86e9-73c7c45d96fd_unnamed.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
+          <span class="link-label" data-i18n="hwahae">[KR] Hwahae Shopping</span>
+        </a>
         <a class="link-card" data-country="KR" href="https://www.google.com/maps/d/u/0/edit?mid=1We0va4eRn_nZzpmThloYP2zWF8hTKeQ&amp;usp=sharing" target="_blank" rel="noopener noreferrer">
           <img class="link-icon" src="https://ugc.production.linktr.ee/5c20da5b-fd58-412f-bdfe-f964dc845513_Google-Maps-Logo-1.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
           <span class="link-label" data-i18n="pharmacyMap">[KR] Offline Pharmacy Stocklist</span>
@@ -616,6 +620,7 @@
           findTitle: "Where to find us",
           officialStore: "[KR] NOMADIA Official Store",
           naverStore: "[KR] NOMADIA Naver Smartstore",
+          hwahae: "[KR] Hwahae Shopping",
           pharmacyMap: "[KR] Offline Pharmacy Stocklist",
           qoo10: "[JP] Qoo10 Official Store",
           productsTitle: "Our Products",
@@ -640,6 +645,7 @@
           findTitle: "구매처",
           officialStore: "[KR] NOMADIA 공식몰",
           naverStore: "[KR] 네이버 스마트스토어",
+          hwahae: "[KR] 화해 쇼핑",
           pharmacyMap: "[KR] 노마디아 입점 약국 지도",
           qoo10: "[JP] Qoo10 공식 스토어",
           productsTitle: "제품",
@@ -664,11 +670,12 @@
           findTitle: "購入先",
           officialStore: "[韓国] NOMADIA公式ストア",
           naverStore: "[韓国] NAVERスマートストア",
+          hwahae: "[韓国] ファヘショッピング",
           pharmacyMap: "[韓国] オフライン薬局マップ",
           qoo10: "[日本] Qoo10公式ストア",
           productsTitle: "製品",
-          productMilk: "Blue Calming Panthenol 1% Cleansing Milk",
-          productBubble: "Golden Jojoba 10% Dual Micro-bubble Cleanser",
+          productMilk: "ブルー カーミング パンテノール 1% クレンジングミルク",
+          productBubble: "ゴールデン ホホバ 10% デュアル マイクロバブル クレンザー",
           business: "ビジネスに関するお問い合わせ",
           email: "メール",
           controlsLabel: "ページ設定",
@@ -736,6 +743,17 @@
         }
       };
 
+      const marketFromTimeZone = () => {
+        try {
+          const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+          if (timeZone === "Asia/Seoul") return "KR";
+          if (timeZone === "Asia/Tokyo") return "JP";
+        } catch {
+          // Unknown time zones fall back to the global ordering.
+        }
+        return "GLOBAL";
+      };
+
       const detectMarket = async () => {
         const override = params.get("country") ?? params.get("market");
         if (override) return { market: normalizeMarket(override), source: "url" };
@@ -744,7 +762,7 @@
         if (cached) return { market: cached, source: "cache" };
 
         const controller = new AbortController();
-        const timeout = window.setTimeout(() => controller.abort(), 1500);
+        const timeout = window.setTimeout(() => controller.abort(), 3000);
         try {
           const response = await fetch(countryApi, {
             cache: "no-store",
@@ -759,7 +777,8 @@
           cacheCountry(country);
           return { market, source: "api" };
         } catch {
-          return { market: "GLOBAL", source: "fallback" };
+          const market = marketFromTimeZone();
+          return { market, source: market === "GLOBAL" ? "fallback" : "timezone" };
         } finally {
           window.clearTimeout(timeout);
         }
