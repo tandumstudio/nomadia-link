@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="NOMADIA official links for products, stores, business inquiries, and the global waitlist.">
   <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#fbfaf5">
+  <meta name="theme-color" content="#AAD5E9">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NOMADIA">
   <meta property="og:title" content="NOMADIA Official Links">
@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://ugc.production.linktr.ee">
   <link rel="preload" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css"></noscript>
+  <link rel="stylesheet" href="assets/nomadia-digital-pilot.css">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -56,27 +57,37 @@
   <style>
     :root {
       color-scheme: light;
-      --paper: #ffffff;
-      --surface: #fbfaf5;
-      --frame: #c7c0af;
-      --ink: #1c241e;
-      --ink-soft: #46503f;
-      --muted: #77735f;
-      --line: #a0a0a0;
-      --line-strong: #c7c0af;
-      --accent: #55684e;
-      --focus: #2f5a3b;
-      --radius: 8px;
-      --gap: 14px;
-      --font-sans: "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      /* Site-owned semantic mappings; raw values live in the pilot stylesheet. */
+      --nomadia-link-page: var(--nomadia-raw-white); /* Black on White: 17.07:1. */
+      --nomadia-link-frame: var(--nomadia-raw-light-blue);
+      --nomadia-link-surface: var(--nomadia-raw-sand); /* Black on Sand: 13.32:1. */
+      --nomadia-link-surface-hover: var(--nomadia-raw-light-jade); /* Black on Light Jade: 14.63:1. */
+      --nomadia-link-action-surface: var(--nomadia-raw-light-jade); /* Black on Light Jade: 14.63:1. */
+      --nomadia-link-action-hover: var(--nomadia-raw-jade); /* Black on Jade: 9.24:1. */
+      --nomadia-link-product-media: var(--nomadia-raw-light-blue); /* Black on Light Blue: 10.89:1. */
+      --nomadia-link-text: var(--nomadia-raw-black);
+      --nomadia-link-text-strong: var(--nomadia-raw-dark-blue); /* On White: 9.27:1; on Sand: 7.24:1. */
+      --nomadia-link-text-muted: var(--nomadia-raw-dark-grey); /* On White: 5.92:1; on Sand: 4.62:1. */
+      --nomadia-link-border: var(--nomadia-raw-grey-blue); /* UI boundary: 4.14:1 on White; 3.23:1 on Sand. */
+      --nomadia-link-soft-line: var(--nomadia-raw-grey-blue); /* Product divider on White: 4.14:1. */
+      --nomadia-link-focus-ring: var(--nomadia-raw-dark-blue); /* At least 5.92:1 against every page fill. */
+      --nomadia-link-focus-surface: var(--nomadia-raw-dark-blue);
+      --nomadia-link-focus-text: var(--nomadia-raw-white); /* White on Dark Blue: 9.27:1. */
+      --nomadia-link-status-surface: var(--nomadia-raw-dark-blue);
+      --nomadia-link-status-text: var(--nomadia-raw-white); /* White on Dark Blue: 9.27:1. */
+      --nomadia-link-avatar-surface: var(--nomadia-raw-light-grey);
+      --nomadia-link-radius: 8px;
+      --nomadia-link-gap: 14px;
+      --nomadia-link-font-sans: "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; }
 
     html {
       min-height: 100%;
-      background: var(--frame);
-      font-family: var(--font-sans);
+      background: var(--nomadia-link-frame);
+      font-family: var(--nomadia-link-font-sans);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -85,27 +96,14 @@
       min-height: 100vh;
       margin: 0 auto;
       overflow-x: hidden;
-      background: var(--paper);
-      color: var(--ink);
+      background: var(--nomadia-link-page);
+      color: var(--nomadia-link-text);
       font-size: 15px;
       line-height: 1.6;
       isolation: isolate;
     }
 
-    body::before,
-    body::after {
-      position: fixed;
-      display: none;
-      pointer-events: none;
-      content: "";
-    }
-
     a { color: inherit; }
-
-    :where(a, button, select):focus-visible {
-      outline: 3px solid var(--focus);
-      outline-offset: 3px;
-    }
 
     [hidden] { display: none !important; }
 
@@ -114,8 +112,8 @@
       width: min(100%, 580px);
       min-height: 100vh;
       margin: 0 auto;
-      padding: 40px var(--gap) 44px;
-      background: var(--paper);
+      padding: 40px var(--nomadia-link-gap) 44px;
+      background: var(--nomadia-link-page);
     }
 
     .profile {
@@ -134,8 +132,8 @@
     .topbar {
       position: absolute;
       top: 14px;
-      right: var(--gap);
-      left: var(--gap);
+      right: var(--nomadia-link-gap);
+      left: var(--nomadia-link-gap);
       z-index: 2;
       display: flex;
       align-items: flex-start;
@@ -146,10 +144,9 @@
     .language-select,
     .share-button {
       min-height: 42px;
-      border: 1px solid var(--line);
+      border: 1px solid var(--nomadia-link-border);
       border-radius: 16px;
-      background: color-mix(in srgb, var(--surface) 92%, transparent);
-      backdrop-filter: blur(10px);
+      background: var(--nomadia-link-action-surface);
       pointer-events: auto;
     }
 
@@ -166,7 +163,7 @@
       z-index: 1;
       width: 18px;
       height: 18px;
-      color: var(--accent);
+      color: var(--nomadia-link-text-strong);
       pointer-events: none;
     }
 
@@ -191,7 +188,7 @@
 
     .share-button:hover,
     .language-select:hover {
-      background: #f3f3ec;
+      background: var(--nomadia-link-action-hover);
     }
 
     .share-button svg {
@@ -206,9 +203,9 @@
       width: max-content;
       max-width: min(260px, calc(100vw - 28px));
       padding: 8px 10px;
-      border-radius: 8px;
-      background: var(--accent);
-      color: #ffffff;
+      border-radius: var(--nomadia-link-radius);
+      background: var(--nomadia-link-status-surface);
+      color: var(--nomadia-link-status-text);
       font-size: 12px;
       opacity: 0;
       pointer-events: none;
@@ -221,27 +218,18 @@
       transform: translateY(0);
     }
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
     .avatar {
       width: 86px;
       height: 86px;
+      border: 1px solid var(--nomadia-link-border);
       border-radius: 50%;
       object-fit: cover;
-      background: #dfe4df;
+      background: var(--nomadia-link-avatar-surface);
     }
 
     h1 {
       margin: 16px 0 5px;
+      color: var(--nomadia-link-text-strong);
       font-size: 22px;
       font-weight: 500;
       line-height: 1.2;
@@ -269,16 +257,17 @@
       height: 42px;
       place-items: center;
       border-radius: 50%;
+      color: var(--nomadia-link-text-strong);
       transition: background-color 160ms ease, transform 160ms ease;
     }
 
     .social-link:hover {
-      background: var(--surface);
+      background: var(--nomadia-link-surface-hover);
       transform: translateY(-1px);
     }
 
     .social-link:focus-visible {
-      background: var(--surface);
+      background: var(--nomadia-link-surface-hover);
       transform: none;
     }
 
@@ -298,6 +287,7 @@
 
     .section-title {
       margin: 0 0 12px;
+      color: var(--nomadia-link-text-strong);
       text-align: center;
       font-size: 13px;
       font-weight: 500;
@@ -318,9 +308,9 @@
       align-items: center;
       gap: 10px;
       padding: 8px 10px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
+      border: 1px solid var(--nomadia-link-border);
+      border-radius: var(--nomadia-link-radius);
+      background: var(--nomadia-link-surface);
       text-decoration: none;
       transition: background-color 160ms ease, transform 160ms ease;
     }
@@ -332,13 +322,13 @@
 
     .link-card:hover,
     .product-card:hover {
-      background: #f3f3ec;
+      background: var(--nomadia-link-surface-hover);
       transform: translateY(-1px);
     }
 
     .link-card:focus-visible,
     .product-card:focus-visible {
-      background: #f3f3ec;
+      background: var(--nomadia-link-surface-hover);
       transform: none;
     }
 
@@ -360,11 +350,16 @@
       line-height: 1.35;
     }
 
-
     .simple-card {
       grid-template-columns: 1fr;
       min-height: 58px;
       padding-inline: 10px;
+      background: var(--nomadia-link-action-surface);
+    }
+
+    .simple-card:hover,
+    .simple-card:focus-visible {
+      background: var(--nomadia-link-action-hover);
     }
 
     .simple-card::after { display: none; }
@@ -373,8 +368,9 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+      border: 1px solid var(--nomadia-link-border);
+      border-radius: var(--nomadia-link-radius);
+      background: var(--nomadia-link-page);
     }
 
     .product-card {
@@ -385,7 +381,7 @@
       transition: background-color 160ms ease, transform 160ms ease;
     }
 
-    .product-card + .product-card { border-left: 1px solid var(--soft-line); }
+    .product-card + .product-card { border-left: 1px solid var(--nomadia-link-soft-line); }
 
     .product-card img {
       width: 100%;
@@ -393,7 +389,7 @@
       padding: 8px;
       object-fit: contain;
       object-position: center;
-      background: var(--surface);
+      background: var(--nomadia-link-product-media);
     }
 
     .product-name {
@@ -418,6 +414,7 @@
       width: 38px;
       height: 38px;
       place-items: center;
+      color: var(--nomadia-link-text-strong);
     }
 
     .mail-icon svg { width: 22px; height: 22px; }
@@ -429,21 +426,21 @@
 
     .contact-title {
       display: block;
-      color: var(--ink);
+      color: var(--nomadia-link-text);
       font-size: 14px;
     }
 
     .contact-detail {
       display: block;
       margin-top: 3px;
-      color: var(--muted);
+      color: var(--nomadia-link-text-muted);
       font-size: 12px;
     }
 
     footer {
       margin-top: 42px;
       text-align: center;
-      color: var(--muted);
+      color: var(--nomadia-link-text-muted);
       font-size: 12px;
       line-height: 1.5;
     }
@@ -452,40 +449,17 @@
     @media (max-width: 575px) {
       .language-select { padding-left: 42px; }
     }
-
     @media (min-width: 576px) {
       body {
-        background: transparent;
-      }
-
-      body::before {
-        inset: -64px;
-        z-index: 0;
-        display: block;
-        background-color: var(--line-strong);
-        background-image: url("https://ugc.production.linktr.ee/09f92266-7574-4f33-9c3a-9967e7190dba_IMG-2174.png?io=true&size=avatar-v3_0");
-        background-position: center;
-        background-size: cover;
-        filter: blur(48px) saturate(0.7);
-        opacity: 0.58;
-        transform: scale(1.08);
-      }
-
-      body::after {
-        inset: 0;
-        z-index: 0;
-        display: block;
-        background: rgba(199, 192, 175, 0.52);
-        backdrop-filter: blur(8px);
+        background: var(--nomadia-link-frame);
       }
 
       .page {
         z-index: 1;
         margin-top: 40px;
-        border: 1px solid rgba(255, 255, 255, 0.72);
+        border: 1px solid var(--nomadia-link-border);
+        border-bottom: 0;
         border-radius: 14px 14px 0 0;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(18px);
       }
     }
 
@@ -494,21 +468,18 @@
       .product-name { font-size: 12px; }
       .link-label { font-size: 13px; }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
-    }
   </style>
 </head>
-<body>
-  <main class="page">
+<body class="nomadia-digital-pilot">
+  <a class="nomadia-skip-link" href="#main-content" data-i18n="skipToContent">Skip to main content</a>
+  <main class="page" id="main-content" tabindex="-1">
     <div class="topbar" role="group" aria-label="Page controls" data-i18n-aria="controlsLabel">
       <div class="language-control">
         <svg class="language-icon" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
           <path d="M3 12h18M12 3c2.2 2.45 3.35 5.45 3.35 9S14.2 18.55 12 21M12 3C9.8 5.45 8.65 8.45 8.65 12S9.8 18.55 12 21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
         </svg>
-        <label class="sr-only" id="language-label" for="language-select" data-i18n="languageLabel">Language</label>
+        <label class="nomadia-visually-hidden" id="language-label" for="language-select" data-i18n="languageLabel">Language</label>
         <select class="language-select" id="language-select" aria-labelledby="language-label">
           <option value="en">English</option>
           <option value="ko">한국어</option>
@@ -628,6 +599,7 @@
           email: "Email",
           controlsLabel: "Page controls",
           languageLabel: "Language",
+          skipToContent: "Skip to main content",
           shareLabel: "Share page",
           copied: "Link copied",
           copyFailed: "Copy the page URL from the address bar"
@@ -652,6 +624,7 @@
           email: "이메일",
           controlsLabel: "페이지 설정",
           languageLabel: "언어",
+          skipToContent: "본문으로 건너뛰기",
           shareLabel: "페이지 공유",
           copied: "링크를 복사했습니다",
           copyFailed: "주소창에서 페이지 주소를 복사해 주세요"
@@ -676,6 +649,7 @@
           email: "メール",
           controlsLabel: "ページ設定",
           languageLabel: "言語",
+          skipToContent: "メインコンテンツへ移動",
           shareLabel: "ページを共有",
           copied: "リンクをコピーしました",
           copyFailed: "アドレスバーからページURLをコピーしてください"

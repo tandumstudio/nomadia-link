@@ -1,0 +1,64 @@
+:root {
+  --nomadia-raw-white: #FFFFFF;
+  --nomadia-raw-light-grey: #B4B4B0;
+  --nomadia-raw-dark-blue: #2E4967;
+  --nomadia-raw-grey-blue: #6D7F8D;
+  --nomadia-raw-light-blue: #AAD5E9;
+  --nomadia-raw-jade: #5BD49F;
+  --nomadia-raw-light-jade: #D3F6DD;
+  --nomadia-raw-dark-grey: #646464;
+  --nomadia-raw-black: #1C1C1A;
+  --nomadia-raw-brown: #B09A7D;
+  --nomadia-raw-sand: #ECE3C8;
+  --nomadia-raw-gold: #FFC14E;
+}
+
+.nomadia-skip-link {
+  position: fixed;
+  inset-block-start: 8px;
+  inset-inline-start: 8px;
+  z-index: 100;
+  padding: 8px 12px;
+  border: 2px solid var(--nomadia-link-focus-text);
+  border-radius: 4px;
+  background: var(--nomadia-link-focus-surface);
+  color: var(--nomadia-link-focus-text);
+  font: 500 13px/1.4 var(--nomadia-link-font-sans);
+  text-decoration: none;
+  transform: translateY(calc(-100% - 16px));
+}
+
+.nomadia-skip-link:focus-visible {
+  outline: 3px solid var(--nomadia-link-focus-ring);
+  outline-offset: 3px;
+  transform: translateY(0);
+}
+
+.nomadia-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body.nomadia-digital-pilot :where(a, button, select):focus-visible {
+  outline: 3px solid var(--nomadia-link-focus-ring);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.nomadia-digital-pilot,
+  body.nomadia-digital-pilot *,
+  body.nomadia-digital-pilot *::before,
+  body.nomadia-digital-pilot *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
