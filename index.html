@@ -21,7 +21,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ko_KR">
   <meta property="og:locale:alternate" content="ja_JP">
-  <meta property="og:image" content="https://tandumstudio.github.io/nomadia-link/assets/og-official-links.png">
+  <meta property="og:image" content="https://ecimg.cafe24img.com/pg2522b39418436075/nomadiaadmin/web/upload/share-image-1-962657cab634d13a16aa27e8369aa894.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -29,7 +29,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="NOMADIA Official Links">
   <meta name="twitter:description" content="NOMADIA official links for stores, business inquiries, and international availability updates.">
-  <meta name="twitter:image" content="https://tandumstudio.github.io/nomadia-link/assets/og-official-links.png">
+  <meta name="twitter:image" content="https://ecimg.cafe24img.com/pg2522b39418436075/nomadiaadmin/web/upload/share-image-1-962657cab634d13a16aa27e8369aa894.png">
   <meta name="twitter:image:alt" content="NOMADIA official links">
   <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
   <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96.png">
@@ -639,6 +639,22 @@
         return supportedLanguages.has(language) ? language : null;
       };
 
+      const readSavedLanguage = () => {
+        try {
+          return normalizeLanguage(localStorage.getItem("nomadia-language"));
+        } catch {
+          return null;
+        }
+      };
+
+      const saveLanguage = (language) => {
+        try {
+          localStorage.setItem("nomadia-language", language);
+        } catch {
+          // Language routing still works when browser storage is unavailable.
+        }
+      };
+
       const pathLanguage = () => {
         const relativePath = window.location.pathname.startsWith(siteBasePath)
           ? window.location.pathname.slice(siteBasePath.length)
@@ -662,12 +678,17 @@
         if (fromPath) return fromPath;
         const requested = normalizeLanguage(params.get("lang"));
         if (requested) return requested;
+        const saved = readSavedLanguage();
+        if (saved) return saved;
         for (const locale of navigator.languages ?? [navigator.language]) {
           const language = normalizeLanguage(locale);
           if (language) return language;
         }
         return "en";
       };
+
+      const isCrawler = () =>
+        /bot|crawler|spider|crawling|facebookexternalhit|slackbot|twitterbot|linkedinbot|discordbot|whatsapp/i.test(navigator.userAgent);
 
       const canonicalizeLanguageUrl = (language) => {
         const expected = localeUrl(language);
@@ -835,6 +856,7 @@
 
       languageSelect.addEventListener("change", () => {
         const language = normalizeLanguage(languageSelect.value) || "en";
+        saveLanguage(language);
         window.location.assign(localeUrl(language));
       });
 
@@ -859,7 +881,7 @@
       });
 
       const start = async () => {
-        const language = detectLanguage();
+        const language = isCrawler() && !pathLanguage() ? "en" : detectLanguage();
         if (canonicalizeLanguageUrl(language)) return;
         applyLanguage(language);
         const { market, source } = await detectMarket();
