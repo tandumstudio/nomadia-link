@@ -808,6 +808,9 @@
             storePriority.indexOf(right.dataset.store)
           )
           .forEach((card) => storeList.append(card));
+        if (document.documentElement.lang !== "ko") {
+          storeList.prepend(storeList.querySelector('[data-store="worldwide"]'));
+        }
       };
 
       const languageSelect = document.querySelector("#language-select");
