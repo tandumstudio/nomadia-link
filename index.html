@@ -309,6 +309,15 @@
       letter-spacing: 0.01em;
     }
 
+    .store-group + .store-group { margin-top: 20px; }
+
+    .store-group-title {
+      margin: 0 0 9px;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
     .link-list {
       display: grid;
       gap: 9px;
@@ -495,32 +504,44 @@
     </header>
 
     <section class="section" data-section="stores" aria-labelledby="find-title">
-      <h2 class="section-title" id="find-title" data-i18n="findTitle">Where to find us</h2>
-      <div class="link-list">
-        <a class="link-card" data-store="worldwide" href="https://nomadiaskin.com/" target="_blank" rel="noopener noreferrer">
-          <img class="link-icon" src="assets/nomadia-brand-logo-770c86aacfc6.png" alt="" width="38" height="38">
-          <span class="link-label" data-i18n="worldwideStore">[Worldwide] NOMADIA Official Store</span>
-        </a>
-        <a class="link-card" data-country="KR" data-store="shinsegae" href="https://maps.app.goo.gl/4ombzzCQ3txBtFRx7" target="_blank" rel="noopener noreferrer">
-          <img class="link-icon shinsegae-icon" src="assets/shinsegae-duty-free-bcef535d6c76.png" alt="" width="38" height="38">
-          <span class="link-label" data-i18n="shinsegae">[KR] Shinsegae Duty Free Myeongdong 10F</span>
-        </a>
-        <a class="link-card" data-country="KR" data-store="official" href="https://nomadiaskin.kr/" target="_blank" rel="noopener noreferrer">
-          <img class="link-icon" src="assets/nomadia-brand-logo-770c86aacfc6.png" alt="" width="38" height="38">
-          <span class="link-label" data-i18n="officialStore">[KR] NOMADIA Official Store</span>
-        </a>
-        <a class="link-card" data-country="KR" data-store="naver" href="https://smartstore.naver.com/nomadiaskin" target="_blank" rel="noopener noreferrer">
-          <img class="link-icon" src="https://ugc.production.linktr.ee/835da03e-ff03-4ece-a11f-af491ad00f55_images.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
-          <span class="link-label" data-i18n="naverStore">[KR] NOMADIA Naver Smartstore</span>
-        </a>
-        <a class="link-card" data-country="KR" data-store="pharmacy" href="https://maps.app.goo.gl/KxCXMGyB5ybaMPkN6" target="_blank" rel="noopener noreferrer">
-          <img class="link-icon" src="https://ugc.production.linktr.ee/5c20da5b-fd58-412f-bdfe-f964dc845513_Google-Maps-Logo-1.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
-          <span class="link-label" data-i18n="pharmacyMap">[KR] Offline Pharmacy Stocklist</span>
-        </a>
-        <a class="link-card" data-country="JP" data-store="qoo10" href="https://www.qoo10.jp/shop/nomadia" target="_blank" rel="noopener noreferrer">
-          <img class="link-icon" src="https://ugc.production.linktr.ee/d5bc6f3d-90f8-4705-9184-0253e27f1ad4_images.jpeg?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
-          <span class="link-label" data-i18n="qoo10">[JP] Qoo10</span>
-        </a>
+      <h2 class="section-title" id="find-title" data-i18n="findTitle">Where to Find Us</h2>
+      <div class="store-group" role="group" aria-labelledby="global-title">
+        <h3 class="store-group-title" id="global-title" data-i18n="globalGroup">Global</h3>
+        <div class="link-list">
+          <a class="link-card" data-store="worldwide" href="https://nomadiaskin.com/" target="_blank" rel="noopener noreferrer">
+            <img class="link-icon" src="assets/nomadia-brand-logo-770c86aacfc6.png" alt="" width="38" height="38">
+            <span class="link-label" data-i18n="worldwideStore">🌐 Worldwide: NOMADIA Official Store</span>
+          </a>
+          <a class="link-card" data-store="qoo10" href="https://www.qoo10.jp/shop/nomadia" target="_blank" rel="noopener noreferrer">
+            <img class="link-icon" src="https://ugc.production.linktr.ee/d5bc6f3d-90f8-4705-9184-0253e27f1ad4_images.jpeg?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
+            <span class="link-label" data-i18n="qoo10">🇯🇵 JP: Qoo10 Official Store</span>
+          </a>
+        </div>
+      </div>
+      <div class="store-group" role="group" aria-labelledby="korea-title">
+        <h3 class="store-group-title" id="korea-title" data-i18n="koreaGroup">Korea</h3>
+        <div class="link-list">
+          <a class="link-card" data-store="pharmacy" href="https://maps.app.goo.gl/KxCXMGyB5ybaMPkN6" target="_blank" rel="noopener noreferrer">
+            <img class="link-icon" src="https://ugc.production.linktr.ee/5c20da5b-fd58-412f-bdfe-f964dc845513_Google-Maps-Logo-1.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
+            <span class="link-label" data-i18n="pharmacyMap">🇰🇷 KR: Official Pharmacy Stocklist</span>
+          </a>
+          <a class="link-card" data-store="shinsegae" href="https://maps.app.goo.gl/4ombzzCQ3txBtFRx7" target="_blank" rel="noopener noreferrer">
+            <img class="link-icon shinsegae-icon" src="assets/shinsegae-duty-free-bcef535d6c76.png" alt="" width="38" height="38">
+            <span class="link-label" data-i18n="shinsegae">🇰🇷 KR: Shinsegae Duty Free Myeongdong 10F</span>
+          </a>
+          <a class="link-card" data-store="official" href="https://nomadiaskin.kr/" target="_blank" rel="noopener noreferrer">
+            <img class="link-icon" src="assets/nomadia-brand-logo-770c86aacfc6.png" alt="" width="38" height="38">
+            <span class="link-label" data-i18n="officialStore">🇰🇷 KR: NOMADIA Official Store</span>
+          </a>
+          <a class="link-card" data-store="naver" href="https://smartstore.naver.com/nomadiaskin" target="_blank" rel="noopener noreferrer">
+            <img class="link-icon" src="https://ugc.production.linktr.ee/835da03e-ff03-4ece-a11f-af491ad00f55_images.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
+            <span class="link-label" data-i18n="naverStore">🇰🇷 KR: NAVER Smartstore</span>
+          </a>
+          <a class="link-card" data-store="kurly" href="https://www.kurly.com/collections/br-10362" target="_blank" rel="noopener noreferrer">
+            <img class="link-icon kurly-icon" src="assets/kurly-thumbnail-13d8fa523b6f.png" alt="" width="38" height="38">
+            <span class="link-label" data-i18n="kurly">🇰🇷 KR: Market Kurly</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -540,7 +561,6 @@
 
   <script>
     (() => {
-      const countryApi = "https://api.country.is/";
       const siteBasePath = "/nomadia-link/";
       const supportedLanguages = new Set(["en", "ko", "ja"]);
       const params = new URLSearchParams(window.location.search);
@@ -551,13 +571,16 @@
           ogLocale: "en_US",
           bioLead: "Derma skincare for sensitive skin 🥼🤍",
           bioSub: "exploring the unknowns of sensitive skin 🔍",
-          findTitle: "Where to find us",
-          officialStore: "[KR] NOMADIA Official Store",
-          worldwideStore: "[Worldwide] NOMADIA Official Store",
-          naverStore: "[KR] NOMADIA Naver Smartstore",
-          pharmacyMap: "[KR] Offline Pharmacy Stocklist",
-          shinsegae: "[KR] Shinsegae Duty Free Myeongdong 10F",
-          qoo10: "[JP] Qoo10 Official Store",
+          findTitle: "Where to Find Us",
+          officialStore: "🇰🇷 KR: NOMADIA Official Store",
+          worldwideStore: "🌐 Worldwide: NOMADIA Official Store",
+          naverStore: "🇰🇷 KR: NAVER Smartstore",
+          pharmacyMap: "🇰🇷 KR: Official Pharmacy Stocklist",
+          shinsegae: "🇰🇷 KR: Shinsegae Duty Free Myeongdong 10F",
+          qoo10: "🇯🇵 JP: Qoo10 Official Store",
+          koreaGroup: "Korea",
+          globalGroup: "Global",
+          kurly: "🇰🇷 KR: Market Kurly",
           business: "Business Inquiries",
           email: "Email",
           controlsLabel: "Page controls",
@@ -574,12 +597,15 @@
           bioLead: "민감성 피부를 위한 더마 스킨케어 🥼🤍",
           bioSub: "민감성 피부의 미지의 영역을 탐구합니다 🔍",
           findTitle: "구매처",
-          officialStore: "[KR] NOMADIA 공식 온라인 스토어",
-          worldwideStore: "[Worldwide] NOMADIA Official Store",
-          naverStore: "[KR] 네이버 스마트스토어",
-          pharmacyMap: "[KR] 노마디아 입점 약국 지도",
-          shinsegae: "[KR] 신세계 면세점",
-          qoo10: "[JP] Qoo10 공식 스토어",
+          officialStore: "🇰🇷 KR: 노마디아 공식 온라인 스토어",
+          worldwideStore: "🌐 Worldwide: NOMADIA Official Store",
+          naverStore: "🇰🇷 KR: 네이버 스마트스토어",
+          pharmacyMap: "🇰🇷 KR: 노마디아 입점 약국 지도",
+          shinsegae: "🇰🇷 KR: 신세계 면세점",
+          qoo10: "🇯🇵 JP: Qoo10 큐텐 공식 스토어",
+          koreaGroup: "국내",
+          globalGroup: "해외",
+          kurly: "🇰🇷 KR: 마켓 컬리",
           business: "비즈니스 문의",
           email: "이메일",
           controlsLabel: "페이지 설정",
@@ -596,12 +622,15 @@
           bioLead: "敏感肌のためのダーマスキンケア 🥼🤍",
           bioSub: "敏感肌の未知を探求します 🔍",
           findTitle: "購入先",
-          officialStore: "[韓国] NOMADIA公式ストア",
-          worldwideStore: "[全世界] NOMADIA公式ストア",
-          naverStore: "[韓国] NAVERスマートストア",
-          pharmacyMap: "[韓国] オフライン薬局マップ",
-          shinsegae: "[韓国] 新世界免税店 明洞店 10F",
-          qoo10: "[日本] Qoo10公式ストア",
+          officialStore: "🇰🇷 韓国: NOMADIA公式ストア",
+          worldwideStore: "🌐 全世界: NOMADIA公式ストア",
+          naverStore: "🇰🇷 韓国: NAVERスマートストア",
+          pharmacyMap: "🇰🇷 韓国: 正規取扱薬局一覧",
+          shinsegae: "🇰🇷 韓国: 新世界免税店 明洞店 10F",
+          qoo10: "🇯🇵 日本: Qoo10公式ストア",
+          koreaGroup: "韓国",
+          globalGroup: "グローバル",
+          kurly: "🇰🇷 韓国: マーケットカーリー",
           business: "ビジネスに関するお問い合わせ",
           email: "メール",
           controlsLabel: "ページ設定",
@@ -626,24 +655,6 @@
           secondary: { href: "https://www.tiktok.com/@nomadiaskin", label: "NOMADIA TikTok", icon: "tiktok" }
         }
       };
-      const sectionOrder = {
-        GLOBAL: ["stores", "business"],
-        KR: ["stores", "business"],
-        JP: ["stores", "business"]
-      };
-      const storeOrder = {
-        GLOBAL: ["official", "naver", "pharmacy", "qoo10", "worldwide"],
-        KR: ["official", "naver", "pharmacy", "qoo10", "worldwide"],
-        JP: ["qoo10", "official", "naver", "pharmacy", "worldwide"]
-      };
-
-      // Requested locale-specific positions take precedence over market sorting.
-      const localeStoreOrder = {
-        en: ["worldwide", "shinsegae", "pharmacy"],
-        ko: ["official", "naver", "pharmacy", "shinsegae"],
-        ja: ["qoo10", "worldwide", "shinsegae", "pharmacy"]
-      };
-
       const normalizeLanguage = (value) => {
         const language = value?.toLowerCase().split("-")[0];
         return supportedLanguages.has(language) ? language : null;
@@ -676,10 +687,6 @@
       const localeUrl = (language) => {
         const path = language === "en" ? siteBasePath : `${siteBasePath}${language}/`;
         const url = new URL(path, window.location.origin);
-        for (const key of ["country", "market"]) {
-          const value = params.get(key);
-          if (value) url.searchParams.set(key, value);
-        }
         return url;
       };
 
@@ -710,70 +717,6 @@
           return true;
         }
         return false;
-      };
-
-      const normalizeMarket = (value) => {
-        const country = value?.toUpperCase();
-        if (country === "KR" || country === "JP") return country;
-        return "GLOBAL";
-      };
-
-      const readCachedMarket = () => {
-        try {
-          const country = sessionStorage.getItem("nomadia-country");
-          return country ? normalizeMarket(country) : null;
-        } catch {
-          return null;
-        }
-      };
-
-      const cacheCountry = (country) => {
-        try {
-          sessionStorage.setItem("nomadia-country", country);
-        } catch {
-          // The page still works when browser storage is unavailable.
-        }
-      };
-
-      const marketFromTimeZone = () => {
-        try {
-          const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-          if (timeZone === "Asia/Seoul") return "KR";
-          if (timeZone === "Asia/Tokyo") return "JP";
-        } catch {
-          // Unknown time zones fall back to the global ordering.
-        }
-        return "GLOBAL";
-      };
-
-      const detectMarket = async () => {
-        const override = params.get("country") ?? params.get("market");
-        if (override) return { market: normalizeMarket(override), source: "url" };
-
-        const cached = readCachedMarket();
-        if (cached) return { market: cached, source: "cache" };
-
-        const controller = new AbortController();
-        const timeout = window.setTimeout(() => controller.abort(), 3000);
-        try {
-          const response = await fetch(countryApi, {
-            cache: "no-store",
-            credentials: "omit",
-            referrerPolicy: "no-referrer",
-            signal: controller.signal
-          });
-          if (!response.ok) throw new Error(`Country lookup failed: ${response.status}`);
-          const { country } = await response.json();
-          if (typeof country !== "string") throw new Error("Country lookup returned no country");
-          const market = normalizeMarket(country);
-          cacheCountry(country);
-          return { market, source: "api" };
-        } catch {
-          const market = marketFromTimeZone();
-          return { market, source: market === "GLOBAL" ? "fallback" : "timezone" };
-        } finally {
-          window.clearTimeout(timeout);
-        }
       };
 
       const applySocialProfiles = (language) => {
@@ -812,27 +755,6 @@
           ? "https://www.ssgdfs.com/kr/dispctg/brand/NOMADIA"
           : "https://maps.app.goo.gl/4ombzzCQ3txBtFRx7";
         applySocialProfiles(language);
-      };
-
-      const applyMarket = (market) => {
-        const main = document.querySelector("main");
-        const footer = main.querySelector("footer");
-        for (const sectionName of sectionOrder[market]) {
-          main.insertBefore(main.querySelector(`[data-section="${sectionName}"]`), footer);
-        }
-
-        const storePriority = [...new Set([
-          ...localeStoreOrder[document.documentElement.lang],
-          ...storeOrder[market]
-        ])];
-        const storeList = main.querySelector('[data-section="stores"] .link-list');
-        const storeCards = [...storeList.querySelectorAll("[data-store]")];
-        storeCards
-          .sort((left, right) =>
-            storePriority.indexOf(left.dataset.store) -
-            storePriority.indexOf(right.dataset.store)
-          )
-          .forEach((card) => storeList.append(card));
       };
 
       const languageSelect = document.querySelector("#language-select");
@@ -895,15 +817,11 @@
         }
       });
 
-      const start = async () => {
+      const start = () => {
         const language = isCrawler() && !pathLanguage() ? "en" : detectLanguage();
         if (canonicalizeLanguageUrl(language)) return;
         applyLanguage(language);
-        const { market, source } = await detectMarket();
-        applyMarket(market);
         document.documentElement.dataset.language = language;
-        document.documentElement.dataset.market = market.toLowerCase();
-        document.documentElement.dataset.countrySource = source;
       };
 
       start();
