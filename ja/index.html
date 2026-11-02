@@ -67,9 +67,9 @@
     :root {
       color-scheme: light;
 
-      /* Restrained site mapping: Sand is the only page backdrop accent. */
+      /* Restrained site mapping: Light Grey is the page backdrop accent. */
       --nomadia-link-page: var(--nomadia-raw-white); /* Black on White: 17.07:1. */
-      --nomadia-link-frame: var(--nomadia-raw-sand); /* Black on Sand: 13.32:1. */
+      --nomadia-link-frame: var(--nomadia-raw-light-grey); /* Black on Light Grey: 8.21:1. */
       --nomadia-link-surface: var(--nomadia-raw-white); /* Black on White: 17.07:1. */
       --nomadia-link-surface-inverse: var(--nomadia-raw-black); /* White on Black: 17.07:1. */
       --nomadia-link-text: var(--nomadia-raw-black);
@@ -350,6 +350,8 @@
       object-fit: cover;
     }
 
+    .shinsegae-icon { object-fit: contain; }
+
     .link-label {
       text-align: center;
       font-size: 14px;
@@ -495,12 +497,20 @@
     <section class="section" data-section="stores" aria-labelledby="find-title">
       <h2 class="section-title" id="find-title" data-i18n="findTitle">購入先</h2>
       <div class="link-list">
+        <a class="link-card" data-country="JP" data-store="qoo10" href="https://www.qoo10.jp/shop/nomadia" target="_blank" rel="noopener noreferrer">
+          <img class="link-icon" src="https://ugc.production.linktr.ee/d5bc6f3d-90f8-4705-9184-0253e27f1ad4_images.jpeg?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
+          <span class="link-label" data-i18n="qoo10">[日本] Qoo10公式ストア</span>
+        </a>
         <a class="link-card" data-store="worldwide" href="https://nomadiaskin.com/" target="_blank" rel="noopener noreferrer">
-          <img class="link-icon" src="https://ugc.production.linktr.ee/5b7694e3-904a-49f9-afd2-c23b1409828b_nomadia-logo-final-260106-lockup-720.jpeg?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
+          <img class="link-icon" src="assets/nomadia-brand-logo-770c86aacfc6.png" alt="" width="38" height="38">
           <span class="link-label">[Worldwide] NOMADIA Official Store</span>
         </a>
+        <a class="link-card" data-country="KR" data-store="shinsegae" href="https://maps.app.goo.gl/4ombzzCQ3txBtFRx7" target="_blank" rel="noopener noreferrer">
+          <img class="link-icon shinsegae-icon" src="assets/shinsegae-duty-free-bcef535d6c76.png" alt="" width="38" height="38">
+          <span class="link-label" data-i18n="shinsegae">[KR] 新世界免税店 明洞店</span>
+        </a>
         <a class="link-card" data-country="KR" data-store="official" href="https://nomadiaskin.kr/" target="_blank" rel="noopener noreferrer">
-          <img class="link-icon" src="https://ugc.production.linktr.ee/5b7694e3-904a-49f9-afd2-c23b1409828b_nomadia-logo-final-260106-lockup-720.jpeg?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
+          <img class="link-icon" src="assets/nomadia-brand-logo-770c86aacfc6.png" alt="" width="38" height="38">
           <span class="link-label" data-i18n="officialStore">[韓国] NOMADIA公式ストア</span>
         </a>
         <a class="link-card" data-country="KR" data-store="naver" href="https://smartstore.naver.com/nomadiaskin" target="_blank" rel="noopener noreferrer">
@@ -510,10 +520,6 @@
         <a class="link-card" data-country="KR" data-store="pharmacy" href="https://maps.app.goo.gl/KxCXMGyB5ybaMPkN6" target="_blank" rel="noopener noreferrer">
           <img class="link-icon" src="https://ugc.production.linktr.ee/5c20da5b-fd58-412f-bdfe-f964dc845513_Google-Maps-Logo-1.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
           <span class="link-label" data-i18n="pharmacyMap">[韓国] オフライン薬局マップ</span>
-        </a>
-        <a class="link-card" data-country="JP" data-store="qoo10" href="https://www.qoo10.jp/shop/nomadia" target="_blank" rel="noopener noreferrer">
-          <img class="link-icon" src="https://ugc.production.linktr.ee/d5bc6f3d-90f8-4705-9184-0253e27f1ad4_images.jpeg?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
-          <span class="link-label" data-i18n="qoo10">[日本] Qoo10公式ストア</span>
         </a>
       </div>
     </section>
@@ -549,6 +555,7 @@
           officialStore: "[KR] NOMADIA Official Store",
           naverStore: "[KR] NOMADIA Naver Smartstore",
           pharmacyMap: "[KR] Offline Pharmacy Stocklist",
+          shinsegae: "[KR] Shinsegae Duty Free Myeongdong",
           qoo10: "[JP] Qoo10 Official Store",
           business: "Business Inquiries",
           email: "Email",
@@ -569,6 +576,7 @@
           officialStore: "[KR] NOMADIA 공식 온라인 스토어",
           naverStore: "[KR] 네이버 스마트스토어",
           pharmacyMap: "[KR] 노마디아 입점 약국 지도",
+          shinsegae: "[KR] 신세계 면세점",
           qoo10: "[JP] Qoo10 공식 스토어",
           business: "비즈니스 문의",
           email: "이메일",
@@ -589,6 +597,7 @@
           officialStore: "[韓国] NOMADIA公式ストア",
           naverStore: "[韓国] NAVERスマートストア",
           pharmacyMap: "[韓国] オフライン薬局マップ",
+          shinsegae: "[KR] 新世界免税店 明洞店",
           qoo10: "[日本] Qoo10公式ストア",
           business: "ビジネスに関するお問い合わせ",
           email: "メール",
@@ -623,6 +632,13 @@
         GLOBAL: ["official", "naver", "pharmacy", "qoo10", "worldwide"],
         KR: ["official", "naver", "pharmacy", "qoo10", "worldwide"],
         JP: ["qoo10", "official", "naver", "pharmacy", "worldwide"]
+      };
+
+      // Requested locale-specific positions take precedence over market sorting.
+      const localeStoreOrder = {
+        en: ["worldwide", "shinsegae"],
+        ko: ["official", "naver", "pharmacy", "shinsegae"],
+        ja: ["qoo10", "worldwide", "shinsegae"]
       };
 
       const normalizeLanguage = (value) => {
@@ -789,6 +805,9 @@
         }
         document.querySelector("#language-select").value = language;
         document.querySelector("#share-button").setAttribute("aria-label", copy.shareLabel);
+        document.querySelector('[data-store="shinsegae"]').href = language === "ko"
+          ? "https://www.ssgdfs.com/kr/dispctg/brand/NOMADIA"
+          : "https://maps.app.goo.gl/4ombzzCQ3txBtFRx7";
         applySocialProfiles(language);
       };
 
@@ -799,7 +818,10 @@
           main.insertBefore(main.querySelector(`[data-section="${sectionName}"]`), footer);
         }
 
-        const storePriority = storeOrder[market];
+        const storePriority = [...new Set([
+          ...localeStoreOrder[document.documentElement.lang],
+          ...storeOrder[market]
+        ])];
         const storeList = main.querySelector('[data-section="stores"] .link-list');
         const storeCards = [...storeList.querySelectorAll("[data-store]")];
         storeCards
@@ -808,9 +830,6 @@
             storePriority.indexOf(right.dataset.store)
           )
           .forEach((card) => storeList.append(card));
-        if (document.documentElement.lang !== "ko") {
-          storeList.prepend(storeList.querySelector('[data-store="worldwide"]'));
-        }
       };
 
       const languageSelect = document.querySelector("#language-select");
