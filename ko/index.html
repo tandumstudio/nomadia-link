@@ -369,9 +369,27 @@
       line-height: 1.35;
     }
 
+    [data-section="stores"] .link-card {
+      grid-template-columns: minmax(0, 1fr);
+      container-type: inline-size;
+    }
+
+    [data-section="stores"] .link-card::after { display: none; }
+
     [data-section="stores"] .link-label {
-      font-size: 16.8px;
+      --store-label-size: 16.8px;
+      font-size: var(--store-label-size);
       font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Only the longest names shrink when the full card width requires it. */
+    html:not([data-language="ja"]) [data-store="worldwide"] .link-label {
+      font-size: min(var(--store-label-size), 5.45cqi);
+    }
+
+    html[data-language="en"] [data-store="shinsegae"] .link-label {
+      font-size: min(var(--store-label-size), 4.62cqi);
     }
 
     .simple-card {
@@ -460,7 +478,7 @@
     @media (max-width: 360px) {
       .page { padding-inline: 10px; }
       .link-label { font-size: 13px; }
-      [data-section="stores"] .link-label { font-size: 15.6px; }
+      [data-section="stores"] .link-label { --store-label-size: 15.6px; }
     }
   </style>
 </head>
@@ -516,23 +534,18 @@
         <h3 class="store-group-title" id="korea-title" data-i18n="koreaGroup">국내</h3>
         <div class="link-list">
           <a class="link-card" data-store="official" href="https://nomadiaskin.kr/" target="_blank" rel="noopener noreferrer">
-            <img class="link-icon" src="assets/nomadia-brand-logo-770c86aacfc6.png" alt="" width="38" height="38">
             <span class="link-label" data-i18n="officialStore">🇰🇷 KR: 노마디아 공식 온라인 스토어</span>
           </a>
           <a class="link-card" data-store="naver" href="https://smartstore.naver.com/nomadiaskin" target="_blank" rel="noopener noreferrer">
-            <img class="link-icon" src="https://ugc.production.linktr.ee/835da03e-ff03-4ece-a11f-af491ad00f55_images.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
             <span class="link-label" data-i18n="naverStore">🇰🇷 KR: 네이버 스마트스토어</span>
           </a>
           <a class="link-card" data-store="kurly" href="https://www.kurly.com/collections/br-10362" target="_blank" rel="noopener noreferrer">
-            <img class="link-icon kurly-icon" src="assets/kurly-thumbnail-13d8fa523b6f.png" alt="" width="38" height="38">
             <span class="link-label" data-i18n="kurly">🇰🇷 KR: 마켓 컬리</span>
           </a>
           <a class="link-card" data-store="pharmacy" href="https://maps.app.goo.gl/KxCXMGyB5ybaMPkN6" target="_blank" rel="noopener noreferrer">
-            <img class="link-icon" src="https://ugc.production.linktr.ee/5c20da5b-fd58-412f-bdfe-f964dc845513_Google-Maps-Logo-1.png?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
             <span class="link-label" data-i18n="pharmacyMap">🇰🇷 KR: 노마디아 입점 약국 지도</span>
           </a>
           <a class="link-card" data-store="shinsegae" href="https://www.ssgdfs.com/kr/dispctg/brand/NOMADIA" target="_blank" rel="noopener noreferrer">
-            <img class="link-icon shinsegae-icon" src="assets/shinsegae-duty-free-bcef535d6c76.png" alt="" width="38" height="38">
             <span class="link-label" data-i18n="shinsegae">🇰🇷 KR: 신세계 면세점</span>
           </a>
         </div>
@@ -541,11 +554,9 @@
         <h3 class="store-group-title" id="global-title" data-i18n="globalGroup">해외</h3>
         <div class="link-list">
           <a class="link-card" data-store="worldwide" href="https://nomadiaskin.com/" target="_blank" rel="noopener noreferrer">
-            <img class="link-icon" src="assets/nomadia-brand-logo-770c86aacfc6.png" alt="" width="38" height="38">
             <span class="link-label" data-i18n="worldwideStore">🌐 Worldwide: NOMADIA Official Store</span>
           </a>
           <a class="link-card" data-store="qoo10" href="https://www.qoo10.jp/shop/nomadia" target="_blank" rel="noopener noreferrer">
-            <img class="link-icon" src="https://ugc.production.linktr.ee/d5bc6f3d-90f8-4705-9184-0253e27f1ad4_images.jpeg?io=true&amp;size=thumbnail-stack_v1_0" alt="" width="38" height="38">
             <span class="link-label" data-i18n="qoo10">🇯🇵 JP: Qoo10 큐텐 공식 스토어</span>
           </a>
         </div>
