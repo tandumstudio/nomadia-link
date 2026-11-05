@@ -272,24 +272,21 @@
       height: 42px;
       place-items: center;
       border-radius: var(--nomadia-link-radius);
-      background: var(--nomadia-link-surface);
+      background: transparent;
       color: var(--nomadia-link-text);
-      transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+      transition: transform 160ms ease;
     }
 
     .social-link:hover {
-      background: var(--nomadia-link-surface-inverse);
-      color: var(--nomadia-link-text-inverse);
+      background: transparent;
+      color: var(--nomadia-link-text);
       transform: translateY(-1px);
     }
 
     .social-link:focus-visible { transform: none; }
 
-    .social-icon { width: 25px; height: 25px; object-fit: contain; }
-
-    /* Supplied Instagram artwork is white on transparent; retain it on the white button. */
-    .social-icon-instagram { filter: brightness(0); }
-    .social-link:hover .social-icon-instagram { filter: none; }
+    /* Render the supplied white glyphs as black without adding a background tile. */
+    .social-icon { width: 25px; height: 25px; object-fit: contain; filter: brightness(0); }
 
     .threads-icon {
       display: grid;
@@ -525,7 +522,7 @@
           <img class="social-icon social-icon-instagram" src="/nomadia-link/assets/instagram-a6c8d31e0cb1.png" width="25" height="25" alt="" aria-hidden="true">
         </a>
         <a class="social-link" data-social="secondary" href="https://www.tiktok.com/@nomadiaskin" target="_blank" rel="noopener noreferrer" aria-label="NOMADIA TikTok">
-          <img class="social-icon" data-social-icon="tiktok" src="/nomadia-link/assets/tiktok-f28ca93bbaaa.webp" width="25" height="25" alt="" aria-hidden="true">
+          <img class="social-icon" data-social-icon="tiktok" src="/nomadia-link/assets/tiktok-transparent-68e382c49ab2.png" width="25" height="25" alt="" aria-hidden="true">
           <span class="threads-icon" data-social-icon="threads" hidden>@</span>
         </a>
       </nav>
