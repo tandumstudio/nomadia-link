@@ -67,23 +67,23 @@
     :root {
       color-scheme: light;
 
-      /* Restrained site mapping: Light Grey is the page backdrop accent. */
-      --nomadia-link-page: var(--nomadia-raw-white); /* Black on White: 17.07:1. */
-      --nomadia-link-frame: var(--nomadia-raw-light-grey); /* Black on Light Grey: 8.21:1. */
+      /* White outer backdrop; Light Grey inside the outlined content container. */
+      --nomadia-link-page: var(--nomadia-raw-light-grey); /* Black on Light Grey: 8.21:1. */
+      --nomadia-link-frame: var(--nomadia-raw-white); /* Black on White: 17.07:1. */
       --nomadia-link-surface: var(--nomadia-raw-white); /* Black on White: 17.07:1. */
       --nomadia-link-surface-inverse: var(--nomadia-raw-black); /* White on Black: 17.07:1. */
       --nomadia-link-text: var(--nomadia-raw-black);
       --nomadia-link-text-strong: var(--nomadia-raw-black);
       --nomadia-link-text-muted: var(--nomadia-raw-black);
       --nomadia-link-text-inverse: var(--nomadia-raw-white);
-      --nomadia-link-border: var(--nomadia-raw-black); /* UI boundary on White: 17.07:1. */
-      --nomadia-link-soft-line: var(--nomadia-raw-light-grey); /* Decorative divider only. */
-      --nomadia-link-focus-ring: var(--nomadia-raw-black); /* On White: 17.07:1. */
+      --nomadia-link-border: var(--nomadia-raw-black); /* UI boundary on White / Light Grey: 17.07:1 / 8.21:1. */
+      --nomadia-link-soft-line: var(--nomadia-raw-white); /* Decorative divider only. */
+      --nomadia-link-focus-ring: var(--nomadia-raw-black); /* On White / Light Grey: 17.07:1 / 8.21:1. */
       --nomadia-link-focus-surface: var(--nomadia-raw-black);
       --nomadia-link-focus-text: var(--nomadia-raw-white); /* Interactive inverse exception: 17.07:1. */
       --nomadia-link-status-surface: var(--nomadia-raw-white);
       --nomadia-link-status-text: var(--nomadia-raw-black);
-      --nomadia-link-avatar-surface: var(--nomadia-raw-light-grey);
+      --nomadia-link-avatar-surface: var(--nomadia-raw-white);
       --nomadia-link-radius: 2px;
       --nomadia-link-gap: 14px;
       --nomadia-link-font-sans: "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -556,8 +556,14 @@
           <a class="link-card" data-store="worldwide" href="https://nomadiaskin.com/" target="_blank" rel="noopener noreferrer">
             <span class="link-label" data-i18n="worldwideStore">🌐 Worldwide: NOMADIA Official Store</span>
           </a>
+          <a class="link-card" data-store="yesstyle" href="https://bit.ly/4j03aS7" target="_blank" rel="noopener noreferrer">
+            <span class="link-label" data-i18n="yesstyle">🌐 Worldwide: YesStyle</span>
+          </a>
+          <a class="link-card" data-store="amazon" href="https://www.amazon.com/stores/NOMADIASKIN/page/CEAFCB9A-B292-4279-B5DA-12D734B6CDF7?maas=maas_adg_D0F5C8670D60695A62D93622C17456C6_afap_abs&amp;ref_=aa_maas&amp;tag=maas" target="_blank" rel="noopener noreferrer">
+            <span class="link-label" data-i18n="amazon">🇺🇸 US: Amazon</span>
+          </a>
           <a class="link-card" data-store="qoo10" href="https://www.qoo10.jp/shop/nomadia" target="_blank" rel="noopener noreferrer">
-            <span class="link-label" data-i18n="qoo10">🇯🇵 JP: Qoo10 큐텐 공식 스토어</span>
+            <span class="link-label" data-i18n="qoo10">🇯🇵 JP: Qoo10 Official Store</span>
           </a>
         </div>
       </div>
@@ -597,6 +603,8 @@
           findTitle: "Where to Find Us",
           officialStore: "🇰🇷 KR: NOMADIA Official Store",
           worldwideStore: "🌐 Worldwide: NOMADIA Official Store",
+          yesstyle: "🌐 Worldwide: YesStyle",
+          amazon: "🇺🇸 US: Amazon",
           naverStore: "🇰🇷 KR: NAVER Smartstore",
           pharmacyMap: "🇰🇷 KR: Official Pharmacy Stocklist",
           shinsegae: "🇰🇷 KR: Shinsegae Duty Free Myeongdong 10F",
@@ -623,10 +631,12 @@
           findTitle: "구매처",
           officialStore: "🇰🇷 KR: 노마디아 공식 온라인 스토어",
           worldwideStore: "🌐 Worldwide: NOMADIA Official Store",
+          yesstyle: "🌐 Worldwide: YesStyle",
+          amazon: "🇺🇸 US: Amazon",
           naverStore: "🇰🇷 KR: 네이버 스마트스토어",
           pharmacyMap: "🇰🇷 KR: 노마디아 입점 약국 지도",
           shinsegae: "🇰🇷 KR: 신세계 면세점",
-          qoo10: "🇯🇵 JP: Qoo10 큐텐 공식 스토어",
+          qoo10: "🇯🇵 JP: Qoo10 Official Store",
           koreaGroup: "국내",
           globalGroup: "해외",
           kurly: "🇰🇷 KR: 마켓 컬리",
@@ -649,6 +659,8 @@
           findTitle: "購入先",
           officialStore: "🇰🇷 韓国: NOMADIA公式ストア",
           worldwideStore: "🌐 全世界: NOMADIA公式ストア",
+          yesstyle: "🌐 全世界: YesStyle",
+          amazon: "🇺🇸 米国: Amazon",
           naverStore: "🇰🇷 韓国: NAVERスマートストア",
           pharmacyMap: "🇰🇷 韓国: 正規取扱薬局一覧",
           shinsegae: "🇰🇷 韓国: 新世界免税店 明洞店 10F",
